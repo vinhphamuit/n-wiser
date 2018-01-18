@@ -3,7 +3,7 @@ import { Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import '../rxjs-extensions';
 
-import { Category } from '../models/category';
+import { Category } from '../../models/category';
 
 @Injectable()
 export class CategoryService {
