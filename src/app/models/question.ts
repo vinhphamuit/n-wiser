@@ -3,7 +3,7 @@ import { Category } from './category';
 export class Question {
   id: number;
   questionText: string;
-  answer: Answer[];
+  answers: Answer[];
   ordered: boolean;
   explanation?: string;
   tags: string[];
@@ -18,7 +18,7 @@ export class Question {
 
   constructor() {
     this.id = 0;
-    this.answer = [new Answer(), new Answer(), new Answer(), new Answer()];
+    this.answers = [new Answer(), new Answer(), new Answer(), new Answer()];
     this.ordered = false;
     this.tags = [];
     this.categories = [];
@@ -27,7 +27,7 @@ export class Question {
   }
 }
 
-class Answer {
+export class Answer {
   id: number;
   answerText: string;
   correct: boolean;
