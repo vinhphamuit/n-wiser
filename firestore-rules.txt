@@ -1,0 +1,68 @@
+service cloud.firestore {
+  function isAuthenticated() {
+    return request.auth != null;
+  }
+
+  // Add uid of admin user 
+  // This is temp solution for time being till fetching role from user document does not work
+  function isAdmin() {
+  	return isAuthenticated() && 
+    			(request.auth.uid == '');
+  }
+
+  function isUserAuthenticated(userId) {
+    return isAuthenticated() && request.auth.uid == userId;
+  }
+  
+  match /databases/{database}/documents {
+
+    match /users/{userId} {
+          allow read, write: if isUserAuthenticated(userId);          
+    }
+    
+		match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+    
+    match /categories {
+      match /{document=**} {
+        allow read;
+      }
+    }
+
+    match /lists {
+      match /{document=**} {
+        allow read;
+      }
+    }
+    
+    match /questions {
+      match /{document=**} {
+        allow read: if isUserAuthenticated(resource.data.created_uid);
+      }
+    }
+    
+   match /unpublished_questions {
+      match /{document=**} {
+        allow read, update: if isUserAuthenticated(resource.data.created_uid);
+        allow create: if isUserAuthenticated(request.resource.data.created_uid);
+      }
+    }
+    
+    match /bulk_uploads {
+      match /{document=**} {
+        allow read, update: if isUserAuthenticated(resource.data.created_uid);
+        allow create: if isUserAuthenticated(request.resource.data.created_uid);
+      }
+    }
+    
+    match /games {
+      match /{document=**} {
+        allow read, update: if isUserAuthenticated(resource.data.playerId_0) || isUserAuthenticated(resource.data.playerId_1);
+        allow create: if isUserAuthenticated(request.resource.data.playerId_0);
+      }
+    }
+    
+  }
+}
+

@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "ntrivia-86e25",
+    "production": "ntrivia-86e25"
+  }
+}

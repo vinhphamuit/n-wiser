@@ -1,38 +1,61 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { RouterModule  } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
-import 'hammerjs';
-import { MaterialModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { routes } from './app.route';
-import { AppComponent, CategoriesComponent, TagsComponent, QuestionsComponent,
-  QuestionAddUpdateComponent
+import { reducers, CustomSerializer } from './store';
+
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { RoutingModule } from './routing/routing.module';
+//import { MyQuestionsModule } from  './myQuestions/my-questions.module';
+import { GamePlayModule } from './game-play/game-play.module';
+import { SocialModule } from './social/social.module';
+import { UserModule } from './user/user.module';
+import { StatsModule } from './stats/stats.module';
+
+import {
+  AppComponent, DashboardComponent,
+  SideNavComponent, HeaderComponent, FooterComponent
 } from './components';
-import { CategoryService, TagService, QuestionService } from './services';
 
 @NgModule({
   declarations: [
-    AppComponent, CategoriesComponent, TagsComponent, QuestionsComponent, QuestionAddUpdateComponent
+    AppComponent,
+    DashboardComponent,
+    SideNavComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    // Router
-    RouterModule.forRoot(routes),
-    // Material
-    MaterialModule.forRoot(),
-    // Flex
-    FlexLayoutModule.forRoot(),
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule
+    BrowserAnimationsModule,
+
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 20
+    }),
+    //StoreModule.forRoot(reducers),
+    StoreRouterConnectingModule,
+
+    //rwa modules
+    CoreModule,
+    SharedModule,
+    RoutingModule,
+    // MyQuestionsModule,
+    GamePlayModule,
+    SocialModule,
+    UserModule,
+    StatsModule
   ],
-  providers: [
-    CategoryService, TagService, QuestionService
-  ],
+  providers: [ 
+    { provide: RouterStateSerializer, useClass: CustomSerializer }
+  ],                                                                      
   bootstrap: [AppComponent]
 })
 export class AppModule { }

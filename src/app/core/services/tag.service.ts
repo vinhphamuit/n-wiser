@@ -1,18 +1,16 @@
-import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Injectable }    from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import '../rxjs-extensions';
+import '../../rxjs-extensions';
 
 @Injectable()
 export class TagService {
 
-  private _serviceUrl = 'http://localhost:3000/tagList';  // URL to web api
-  constructor(private http: Http) {
+  constructor(private db: AngularFirestore) { 
   }
 
   getTags(): Observable<string[]> {
-    let url = this._serviceUrl;
-    return this.http.get(url)
-      .map(res => res.json() );
+    //console.log(firebase.app().options);
+    return this.db.doc<{"tagList": string[]}>('/lists/tags').valueChanges().take(1).map(t => t.tagList);
   }
 }

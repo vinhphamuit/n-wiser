@@ -3,8 +3,8 @@
   "project": {
     "name": "ntrivia"
   },
-  "apps": [
-    {
+  "apps": [{
+      "name": "ntrivia",
       "root": "src",
       "outDir": "dist",
       "assets": [
@@ -19,13 +19,16 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "n-trivia.theme.scss",
-        "styles.scss"
+        "styles/rwa-trivia.theme.scss",
+        "styles/styles.scss",
+        "styles/global.scss",
+        "styles/light.theme.scss",
+        "styles/dark.theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
-        "dev": "environments/environment.ts",
+        "dev": "environments/environment.dev.ts",
         "prod": "environments/environment.prod.ts"
       }
     }
@@ -37,16 +40,13 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json",
-      "exclude": "**/node_modules/**"
+      "project": "src/tsconfig.app.json"
     },
     {
-      "project": "src/tsconfig.spec.json",
-      "exclude": "**/node_modules/**"
+      "project": "src/tsconfig.spec.json"
     },
     {
-      "project": "e2e/tsconfig.e2e.json",
-      "exclude": "**/node_modules/**"
+      "project": "e2e/tsconfig.e2e.json"
     }
   ],
   "test": {
@@ -56,6 +56,9 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {}
+    "component": {
+        "inlineTemplate": false,
+        "spec": true
+      }
   }
 }

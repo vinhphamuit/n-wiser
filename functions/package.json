@@ -1,0 +1,21 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "cookie-parser": "1.4.3",
+    "cors": "2.8.4",
+    "csv": "1.1.1",
+    "elasticsearch": "13.3.1",
+    "express": "4.16.2",
+    "firebase-admin": "5.9.1",
+    "firebase-functions": "0.8.1",
+    "google-cloud": "0.57.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/elasticsearch": "5.0.14",
+    "@types/node": "7.0.21",
+    "@types/csv-parse": "1.1.8"
+  }
+}

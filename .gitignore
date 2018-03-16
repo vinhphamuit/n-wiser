@@ -2,9 +2,7 @@
 
 # compiled output
 /dist
-/dist-server
 /tmp
-/out-tsc
 
 # dependencies
 /node_modules
@@ -16,10 +14,9 @@
 .c9/
 *.launch
 .settings/
-*.sublime-workspace
 
 # IDE - VSCode
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -28,7 +25,7 @@
 # misc
 /.sass-cache
 /connect.lock
-/coverage
+/coverage/*
 /libpeerconnection.log
 npm-debug.log
 testem.log
@@ -38,6 +35,12 @@ testem.log
 /e2e/*.js
 /e2e/*.map
 
-# System Files
+#System Files
 .DS_Store
 Thumbs.db
+functions/node_modules/
+functions/server/
+functions/config/
+functions/package-lock.json
+package-lock.json
+firebase-debug.log

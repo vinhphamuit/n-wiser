@@ -1,0 +1,17 @@
+<mat-card class="flex-item">
+  <mat-card-title fxLayout="row">
+    <div >GAME OVER</div>
+    <div fxFlex></div>
+    <div></div>
+  </mat-card-title>
+  <mat-card-header>
+    <mat-card-subtitle>
+      Score: {{correctCount}}/{{noOfQuestions}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content fxLayoutAlign="center center">
+    <a [routerLink]="['/game-play']" class="btn">PLAY AGAIN</a>
+    <a [routerLink]="['/']" class="btn">HOME</a>
+  </mat-card-content>
+
+</mat-card>

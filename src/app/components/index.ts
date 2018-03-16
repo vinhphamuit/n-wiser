@@ -1,21 +1,21 @@
 import { AppComponent } from './app/app.component';
-import { CategoriesComponent } from './category/categories.component';
-import { TagsComponent } from './tag/tags.component';
-import { QuestionsComponent } from './question/questions.component';
-import { QuestionAddUpdateComponent } from './question/question-add-update.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 export {
-  AppComponent,
-  CategoriesComponent,
-  TagsComponent,
-  QuestionsComponent,
-  QuestionAddUpdateComponent
+    AppComponent,
+    DashboardComponent,
+    SideNavComponent,
+    HeaderComponent,
+    FooterComponent
 };
 
 export default [
-  AppComponent,
-  CategoriesComponent,
-  TagsComponent,
-  QuestionsComponent,
-  QuestionAddUpdateComponent
+    AppComponent,
+    DashboardComponent,
+    SideNavComponent,
+    HeaderComponent,
+    FooterComponent
 ];
