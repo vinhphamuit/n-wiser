@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-=======
 import { Component , OnInit} from '@angular/core';
->>>>>>> upstream/master
 
 
 @Component({
@@ -10,14 +6,6 @@ import { Component , OnInit} from '@angular/core';
   templateUrl: './bulk.component.html',
   styleUrls: ['./bulk.component.scss']
 })
-<<<<<<< HEAD
-export class BulkComponent {
-
-  public bulkSummaryDetailPath = 'admin/';
-
-  constructor() { }
-
-=======
 export class BulkComponent implements OnInit {
 
   public bulkSummaryDetailPath = 'admin/';
@@ -46,5 +34,4 @@ export class BulkComponent implements OnInit {
     this.showSummaryTable = true;
     this.setDefaultTitle();
   }
->>>>>>> upstream/master
 }

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Component, Input, ViewChild, OnChanges } from '@angular/core';
-=======
 import { Component, Input, ViewChild, OnChanges, Output, EventEmitter } from '@angular/core';
->>>>>>> upstream/master
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { AppState, appState, categoryDictionary } from '../../../../store';
@@ -26,11 +22,7 @@ export class BulkSummaryTableComponent implements OnChanges {
   user: User;
   bulkUploadObs: Observable<BulkUploadFileInfo[]>;
   dataSource: any;
-<<<<<<< HEAD
-  showSummaryTable = true;
-=======
 
->>>>>>> upstream/master
   bulkUploadFileInfo: BulkUploadFileInfo;
   isAdminUrl = false;
 
@@ -38,15 +30,10 @@ export class BulkSummaryTableComponent implements OnChanges {
     'primaryTag', 'countQuestionsUploaded', 'countQuestionsApproved', 'countQuestionsRejected', 'status'];
 
   @Input() bulkSummaryDetailPath: String;
-<<<<<<< HEAD
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-=======
   @Input() showSummaryTable: boolean;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @Output() showBulkUploadBtn = new EventEmitter<String>();
->>>>>>> upstream/master
 
   constructor(
     private store: Store<AppState>,
@@ -60,11 +47,7 @@ export class BulkSummaryTableComponent implements OnChanges {
   }
 
   ngOnChanges() {
-<<<<<<< HEAD
-    if (this.bulkSummaryDetailPath) {
-=======
     if (this.bulkSummaryDetailPath && this.showSummaryTable) {
->>>>>>> upstream/master
       this.loadBulkSummaryData();
     }
   }
@@ -79,14 +62,10 @@ export class BulkSummaryTableComponent implements OnChanges {
       if (bulkUploadFileInfos && bulkUploadFileInfos.length !== 0) {
         for (const key in bulkUploadFileInfos) {
           if (bulkUploadFileInfos[key]) {
-<<<<<<< HEAD
-            bulkUploadFileInfos[key].category = this.categoryDict[bulkUploadFileInfos[key].categoryId].categoryName;
-=======
             if (this.categoryDict[bulkUploadFileInfos[key].categoryId] !== undefined) {
               bulkUploadFileInfos[key].category = this.categoryDict[bulkUploadFileInfos[key].categoryId].categoryName;
             }
 
->>>>>>> upstream/master
             // tslint:disable-next-line:max-line-length
             const filePath = `bulk_upload/${bulkUploadFileInfos[key].created_uid}/${bulkUploadFileInfos[key].id}-${bulkUploadFileInfos[key].fileName}`;
             const ref = this.storage.ref(filePath);
@@ -117,18 +96,8 @@ export class BulkSummaryTableComponent implements OnChanges {
   // get Questions by bulk upload Id
   getBulkUploadQuestions(row: BulkUploadFileInfo) {
     this.bulkUploadFileInfo = row;
-<<<<<<< HEAD
-    this.showSummaryTable = false;
-  }
-
-  backToSummary() {
-    this.showSummaryTable = true;
-    this.loadBulkSummaryData();
-  }
-=======
     this.showBulkUploadBtn.emit('Bulk Upload File Details');
   }
 
 
->>>>>>> upstream/master
 }

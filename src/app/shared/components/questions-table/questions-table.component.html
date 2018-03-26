@@ -34,11 +34,7 @@
         <!-- <div *ngIf="getDisplayStatus(row.status)==='REQUIRED_CHANGE' || showButtons" class="col-xs-12 textrigth">
           <mat-icon class="cursor" (click)="editQuestions(row)">edit</mat-icon>
         </div> -->
-<<<<<<< HEAD
-        <div class="row col-sm-12 col-xs-12" [ngClass]="row.validationErrorMessages?.length > 0?'error-que':''">
-=======
         <div class="col-sm-12 col-xs-12 question-section" [ngClass]="row.validationErrorMessages?.length > 0?'error-que':''">
->>>>>>> upstream/master
           <div class="date">{{row.createdOn | date:'dd MMM yyyy' }}</div>
           <p class="dark">{{row.questionText}}</p>
           <ul class="currentans">
@@ -49,17 +45,6 @@
                   <span *ngIf="answer.correct">{{answer.answerText}}</span>
                 </span>
               </div>
-<<<<<<< HEAD
-              <div class="col-sm-3 col-xs-12 question-status">
-                <div [ngClass]="getDisplayStatus(row.status)==='APPROVED'?['sprite', 'approvedicon']:getDisplayStatus(row.status)==='PENDING'?['sprite', 'pendingicon']:''"></div>
-                <label>
-                  <b [ngClass]="getDisplayStatus(row.status)==='APPROVED'?'status-approved':getDisplayStatus(row.status)==='REJECTED'?'status-rejected':getDisplayStatus(row.status)==='REQUIRED_CHANGE'?'status-change-request':''">{{getDisplayStatus(row.status).replace("_",' ') | titlecase}}</b>
-                </label>
-                <div *ngIf="getDisplayStatus(row.status)==='REJECTED'">
-                  <button class="view-reason-btn" type="button" (click)='showReason(row,i)'>View Reason</button>
-                </div>
-                <div *ngIf="getDisplayStatus(row.status)==='REQUIRED_CHANGE' || showButtons">
-=======
               <div class="row col-sm-3 col-xs-12 question-status">
                 <div [ngClass]="getDisplayStatus(row.status)==='APPROVED'?['sprite', 'approvedicon']:getDisplayStatus(row.status)==='PENDING'?['sprite', 'pendingicon']:'status-btn'"></div>
                 <label>
@@ -69,7 +54,6 @@
                   <button class="view-reason-btn" type="button" (click)='showReason(row,i)'>View Reason</button>
                 </div>
                 <div *ngIf="getDisplayStatus(row.status)==='REQUIRED_CHANGE' || showButtons" class="status-btn">
->>>>>>> upstream/master
                   <button class="edit-btn" type="button" (click)="editQuestions(row)">Edit it</button>
                 </div>
               </div>
@@ -96,16 +80,10 @@
             <li>
               <div class="question-text ">Tags :</div>
               <div class="answer-text">
-<<<<<<< HEAD
-                <span *ngFor="let tag of row.tags">
-                  {{tag}},
-                </span>
-=======
                 {{row.tags?.toString()}}
                 <!-- <span *ngFor="let tag of row.tags">
                   {{tag}},
                 </span> -->
->>>>>>> upstream/master
               </div>
             </li>
             <li *ngIf="row.validationErrorMessages?.length > 0">

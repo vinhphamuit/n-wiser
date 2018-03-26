@@ -52,7 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
         if (url)
           this.router.navigate([url]);
       } else {
-        // if user logs out then redirect to home page
+        // if user logs out then redirect to home page       
         this.router.navigate(['/']);
       }
     });

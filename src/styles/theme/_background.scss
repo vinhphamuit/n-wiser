@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-@mixin theme-background-color($theme, $sprite) {
-	input, textarea, select, button { 
-		background: map-get($theme, input);
-	}
-	.matHeader > div > button , .matHeader > div > div > button, .matHeader,.downloadFile {
-=======
 @mixin theme-background-color($selected-theme-name,$theme, $sprite) {
 	textarea, select,.edit-form-input-field,.tag,.mat-option { 
 		background: map-get($theme, input);
@@ -37,7 +30,6 @@
 	}
 
 	.matHeader > div > button,  {
->>>>>>> upstream/master
 		@if $theme='dark' {
 			background: #FFF;
 			color:rgba(0, 0, 0, 0.54);
@@ -54,11 +46,6 @@
 			color:#FFF;
 		}
 	}
-<<<<<<< HEAD
-
-	/*Header*/
-	.card, nav .smartphone-menu-trigger span, .formfield input[type="checkbox"]:before,.enterquestion .formfield input[type="radio"]:before, .cd-popup-container, .gameplay li, .resubmit, .tag,.avatarimg input[type="file"], #file-name, #curentactive .btnbox,.bulk-upload-summary,.bulk-summary-table,.add-tag-btn { 
-=======
 	.mat-option:hover,.mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover)
 	{
 		@if $selected-theme-name == 'dark' {
@@ -68,7 +55,6 @@
 
 	/*Header*/
 	.card, nav .smartphone-menu-trigger span, .formfield input[type="checkbox"]:before,.enterquestion .formfield input[type="radio"]:before, .cd-popup-container, .gameplay li, .resubmit,.avatarimg input[type="file"], #file-name, #curentactive .btnbox,.bulk-upload-summary,.bulk-summary-table,bulk-summary-question-table,.add-tag-btn,.mat-table,.mat-paginator { 
->>>>>>> upstream/master
 		background: map-get($theme, card);
 	}
 	&, .playwith a:after, .h1block:after, .question-list li label, .recentlygames li a:hover, .navview #statis li a:hover, .tag .tag-i, .secondbg, .logininner .withsocial { 
@@ -128,12 +114,6 @@
 	.subscrib-cont input[type="email"]{ 
 		background: map-get($theme, subscribe-email);
 	}
-<<<<<<< HEAD
-	.bulk-summary-header{
-		background: map-get($theme, nav-sm);
-	}
-	
-=======
 	.bulk-summary-header,.bulk-summary-question-header{
 		background: map-get($theme, table-header);
 	}
@@ -143,7 +123,6 @@
 	}
 	
 	
->>>>>>> upstream/master
 
 	@media screen and ( min-width:1000px){
 		.startgame:hover{ 
@@ -197,13 +176,8 @@
 	.csv-error-msg{ 
 		background: map-get($theme,error-message); 
 	}
-<<<<<<< HEAD
-	
-}
-=======
 	.downloadFile,.rejection-div,.edit-form-div,.add-tag-btn{ 
 		background: map-get($theme, download-btn);
 	}
 	
 }
->>>>>>> upstream/master

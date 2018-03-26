@@ -1,5 +1,5 @@
 import { Routes, RouterModule }  from '@angular/router';
-import { NewGameComponent, GameComponent }
+import { NewGameComponent, GameComponent } 
   from '../components';
 import { AuthGuard, CategoriesResolver, TagsResolver } from '../../core/route-guards';
 

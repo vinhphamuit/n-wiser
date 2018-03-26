@@ -20,7 +20,7 @@ describe('Effects: UserEffects', () => {
     ]
   }));
 
-  it('Call Add user with roles after login success',
+  it('Call Add user with roles after login success', 
     inject([
       EffectsRunner, UserEffects
     ],

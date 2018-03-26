@@ -16,11 +16,8 @@ import * as bulkActions from '../../../bulk/store/actions';
 })
 export class BulkUploadComponent implements OnInit, OnDestroy {
 
-<<<<<<< HEAD
-=======
   primaryTag;
   primaryTagOld;
->>>>>>> upstream/master
   isLinear = true;
   uploadFormGroup: FormGroup;
 
@@ -65,11 +62,7 @@ export class BulkUploadComponent implements OnInit, OnDestroy {
     this.uploadFormGroup = this.fb.group({
       category: ['', Validators.required],
       tagControl: [''],
-<<<<<<< HEAD
-      csvFile: null
-=======
       csvFile: [null, Validators.required]
->>>>>>> upstream/master
     });
 
     this.filteredTags$ = this.uploadFormGroup.get('tagControl').valueChanges
@@ -88,14 +81,10 @@ export class BulkUploadComponent implements OnInit, OnDestroy {
       this.uploadFormGroup.get('csvFile').setValue(file);
       reader.readAsText(file);
       reader.onload = () => {
-<<<<<<< HEAD
-        this.bulkUploadFileInfo = new BulkUploadFileInfo;
-=======
         this.bulkUploadFileInfo = new BulkUploadFileInfo();
         this.questions = [];
         this.parsedQuestions = [];
         this.primaryTag = this.primaryTagOld = '';
->>>>>>> upstream/master
         this.bulkUploadFileInfo.fileName = file['name'];
         this.generateQuestions(reader.result);
       };
@@ -124,15 +113,11 @@ export class BulkUploadComponent implements OnInit, OnDestroy {
     };
 
     parse(csvString, parseOptions,
-<<<<<<< HEAD
-      (err, output) => {
-=======
       (error, output) => {
         if (error) {
           this.fileParseError = true;
           this.fileParseErrorMessage = `File Parsing ${error}`;
         }
->>>>>>> upstream/master
         if (output !== undefined && output !== '') {
           this.questions =
             output.map(element => {
@@ -149,12 +134,6 @@ export class BulkUploadComponent implements OnInit, OnDestroy {
                 question.answers[element['Answer Index'] - 1].correct = true;
               }
 
-<<<<<<< HEAD
-              // add primary tag to question tag list
-              question.tags = [this.uploadFormGroup.get('tagControl').value];
-
-=======
->>>>>>> upstream/master
               for (let i = 1; i < 10; i++) {
                 if (element['Tag ' + i] && element['Tag ' + i] !== '') {
                   // check for duplicate tags
@@ -204,37 +183,22 @@ export class BulkUploadComponent implements OnInit, OnDestroy {
 
   onUploadSubmit() {
     // validate
-<<<<<<< HEAD
-    if (!this.uploadFormGroup.valid || this.bulkUploadFileInfo === undefined) {
-=======
     if (!this.uploadFormGroup.valid) {
       if (this.bulkUploadFileInfo === undefined) {
         this.fileParseError = true;
         this.fileParseErrorMessage = 'Please upload .CSV file';
       }
->>>>>>> upstream/master
       return;
 
     } else {
       const formModel = this.prepareUpload();
-<<<<<<< HEAD
-
-      const dbQuestions: Array<Question> = [];
-
-=======
       const dbQuestions: Array<Question> = [];
        // add primary tag to question tag list
        this.primaryTag = this.uploadFormGroup.get('tagControl').value;
->>>>>>> upstream/master
       for (const question of this.questions) {
         this.bulkUploadFileInfo.categoryId = this.uploadFormGroup.get('category').value;
         this.bulkUploadFileInfo.primaryTag = this.uploadFormGroup.get('tagControl').value;
         question.categoryIds = [this.uploadFormGroup.get('category').value];
-<<<<<<< HEAD
-        question.createdOn = new Date();
-        dbQuestions.push(question);
-      }
-=======
           if (this.primaryTag && !question.tags.includes(this.primaryTag)) {
                 question.tags = [this.uploadFormGroup.get('tagControl').value, ...question.tags.filter(tag => tag !== this.primaryTagOld)];
           } else if (this.primaryTag === '') {
@@ -246,7 +210,6 @@ export class BulkUploadComponent implements OnInit, OnDestroy {
       if ( this.primaryTag !==  this.primaryTagOld) {
         this.primaryTagOld = this.primaryTag;
       }
->>>>>>> upstream/master
       this.bulkUploadFileInfo.created_uid = this.user.userId;
       this.bulkUploadFileInfo.date = new Date().getTime();
       this.parsedQuestions = dbQuestions;

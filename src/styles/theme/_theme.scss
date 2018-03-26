@@ -6,34 +6,18 @@
 	@if $theme-class-name == "" {
 		//default theme
 		body {
-<<<<<<< HEAD
-			@include color-themes($theme-background, $theme-text, $theme-border, $sprite);
-=======
 			@include color-themes($theme-class-name,$theme-background, $theme-text, $theme-border, $sprite);
->>>>>>> upstream/master
 		}
 	}
 	@else {
 		body.#{$theme-class-name} {
-<<<<<<< HEAD
-			@include color-themes($theme-background, $theme-text, $theme-border, $sprite);
-=======
 			@include color-themes($theme-class-name,$theme-background, $theme-text, $theme-border, $sprite);
->>>>>>> upstream/master
 		}
 	}
 }
 
-<<<<<<< HEAD
-@mixin color-themes($theme-background, $theme-text, $theme-border, $sprite) {
-	@include theme-text-color($theme-text);
-	@include theme-background-color($theme-background, $sprite);
-	@include theme-border-color($theme-border);
-}
-=======
 @mixin color-themes($theme-class-name,$theme-background, $theme-text, $theme-border, $sprite) {
 	@include theme-text-color($theme-class-name,$theme-text);
 	@include theme-background-color($theme-class-name,$theme-background, $sprite);
 	@include theme-border-color($theme-border);
 }
->>>>>>> upstream/master

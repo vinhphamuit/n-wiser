@@ -1,11 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { BulkDetailsComponent, BulkUploadComponent,BulkSummaryComponent } from '../components/index';
 
-<<<<<<< HEAD
-import { AuthGuard } from '../../core/services';
-=======
 import { AuthGuard } from '../../core/route-guards';
->>>>>>> upstream/master
 
 export const bulkRoutes: Routes = [
   {

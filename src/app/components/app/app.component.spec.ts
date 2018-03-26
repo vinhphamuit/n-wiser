@@ -20,7 +20,7 @@ describe('Component: AppComponent', () => {
   let _store: any;
   let _router: RouterStub;
   let _authService: MockAuthService;
-
+  
   //Define intial state and test state
   let _initialState = {
                         questionSaveStatus: "",
@@ -57,7 +57,7 @@ describe('Component: AppComponent', () => {
     _store = fixture.debugElement.injector.get(Store);
     _router = fixture.debugElement.injector.get(Router);
     _authService = fixture.debugElement.injector.get(AuthenticationProvider);
-
+    
     comp = fixture.componentInstance; // Component test instance
 
     // query for the title by CSS element selector

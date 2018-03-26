@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "ntrivia",
-=======
-  "name": "trivia",
->>>>>>> upstream/master
   "version": "0.0.0",
   "license": "MIT",
   "angular-cli": {},
