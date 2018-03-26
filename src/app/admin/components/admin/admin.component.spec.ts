@@ -8,7 +8,11 @@ import { Store } from '@ngrx/store';
 import { MockStore, TEST_DATA } from '../../../testing';
 import { RouterStub, RouterOutletStubComponent, RouterLinkStubDirective } from '../../../testing';
 import { AdminComponent } from './admin.component';
+<<<<<<< HEAD
 import { AuthenticationService } from '../../../core/services';
+=======
+import { AuthenticationProvider } from '../../../core/providers';
+>>>>>>> upstream/master
 
 describe('Component: AdminComponent', () => {
 

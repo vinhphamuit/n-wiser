@@ -157,7 +157,7 @@ textarea { overflow: auto; vertical-align: top; padding: 15px 13px 20px; resize:
 }
 @media (min-width:992px) {
 	.pull-left{float: left !important;}
-	.pull-right{float: right !important;}  
+	.pull-right{float: right !important;}
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 { float: left; }
   .col-md-12 { width: 100%; }
   .col-md-11 { width: 91.66666667%; }
@@ -347,7 +347,7 @@ input[type="text"], input[type="email"], select{ border:1px solid; border-radius
 .downloadFile{ border:1px solid;box-shadow: 0 2px 5px rgba(0,0,0,0.3);}
 .custom-file-upload{border:1px solid;box-shadow: 0 2px 5px rgba(0,0,0,0.3);}
 //.tag > span{ display: none; }
-.tag > span{ margin-left: 10px; cursor: pointer } 
+.tag > span{ margin-left: 10px; cursor: pointer }
 .tag .tag-i{ height: 19px; width: 19px; border-radius: 2px; line-height: 19px; top: auto;}
 form .tags{ padding-top: 20px }
 .formfield select{ padding: 10px 15px; line-height: 1.5; width: 100% }
@@ -356,10 +356,10 @@ form .tags{ padding-top: 20px }
 
 @media screen and ( min-width:767px){
   .breadcrumbs{ padding-left: 0 }
-  .btn{display: inline-block; padding: 10px 25px} 
+  .btn{display: inline-block; padding: 10px 25px}
   .btn.startg{ width: 216px; margin:0 auto; padding: 20px 0  }
   h2{ font-size: 22px; }
-  .textrigth {text-align: right !important;} 
+  .textrigth {text-align: right !important;}
   main h2 span{ display: inline-block; padding-left: 15px; }
   .formfield{ display: inline-block; }
 }
@@ -378,7 +378,7 @@ form .tags{ padding-top: 20px }
   main h2 span{ display: block;}
 }
 @media (min-width: 1025px){
-  main { padding: 0 26px; display: table-cell; }  
+  main { padding: 0 26px; display: table-cell; }
 }
 @media (min-width: 1200px){
   .innerpage .mainpage { max-width: none;}
@@ -387,7 +387,7 @@ form .tags{ padding-top: 20px }
   .mainpage { max-width: 1068px;}
   .innerpage .mainpage { max-width: none;}
 }
-@media screen and ( max-width:999px){ 
+@media screen and ( max-width:999px){
   main h2{ line-height: 1.2 }
   .hidden-xs{ display: none; }
   .visible-xs{ display: block; }
@@ -421,20 +421,20 @@ h1 + p{ font-size: 18px; font-family: 'hindlight'; }
   padding: 0px !important;
 }
 
-@media screen and ( min-width:1000px){      
+@media screen and ( min-width:1000px){
   .mat-dialog-container {
     height: auto !important;
     min-width: 800px !important;
     max-width: 960px !important;
   }
 }
-@media screen and ( max-width:1000px){      
+@media screen and ( max-width:1000px){
   .mat-dialog-container {
     width: 96vw !important;
     max-width: 96vw !important;
   }
 }
-@media screen and ( max-width:767px){      
+@media screen and ( max-width:767px){
   .mat-dialog-container {
     height: 90vh !important;
   }
@@ -453,28 +453,28 @@ body.dialog-open {
 	.blog-social a:hover .shareicon {
 		background-position:-63px -208px;
 	}
-  nav .card{ 
+  nav .card{
     border-width: 1px;
     border-style: solid;
   }
 }
-#curentactive{ 
+#curentactive{
 	//TODO: coming from dark-theme. should be with borders
 	border-width:0;
 }
-.card{ 
+.card{
 	//TODO: coming from dark-theme. should be with borders
 	border-width: 1px;
 	border-style: solid;
 }
-nav .user.card{ 
+nav .user.card{
 	//TODO: coming from dark-theme. should be with borders
 	border-width: 0 !important
 }
 .downloadicon{ background-position: -96px -295px; width: 31px; height: 33px;}
-.cancelicon{ background-position: -130px -293px; width: 30px; height: 30px;}
-.closeicon{ background-position: -154px -293px; width: 30px; height: 30px;}
-.pendingicon{ background-position: -178px -293px;  width: 19px;  height: 31px;}
+.cancelicon{ background-position: -130px -293px; width: 25px; height: 30px;}
+.closeicon{ background-position: -154px -293px; width: 27px; height: 30px;}
+.pendingicon{ background-position: -178px -293px;  width: 19px;  height: 33px;}
 .approvedicon{ background-position: -196px -293px; width: 19px; height: 38px;}
 .div-border
 {
@@ -486,4 +486,3 @@ nav .user.card{
   border-width: 2px;
 	border-top-style: solid;
 }
-

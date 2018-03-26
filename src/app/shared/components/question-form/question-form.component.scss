@@ -81,7 +81,11 @@ mat-card-actions {
 }
 
 .edit-form h4{ font-family: 'hindsemibold'; letter-spacing: 0.1px; margin-top: 13px;}
+<<<<<<< HEAD
 .edit-form{padding-left: 15px;padding-right: 15px;font-size: 16px;font-family: 'hindseminormal';}
+=======
+.edit-form{padding: 15px 32px;font-size: 16px;font-family: 'hindseminormal';}
+>>>>>>> upstream/master
 .cancelicon{float: right;cursor: pointer}
 .message{max-width: 850px;}
 .sub-message{font-size: 18px;padding-bottom: 3%;}
@@ -109,7 +113,11 @@ textarea
 }
 .x
 {
+<<<<<<< HEAD
   padding: 8px;
+=======
+  padding: 7px;
+>>>>>>> upstream/master
   cursor: pointer;
 }
 .add-tag-btn{ 
@@ -122,4 +130,11 @@ textarea
   text-align: center;
   padding: 8px 16px;
   margin-left: 1%;
+<<<<<<< HEAD
+=======
+}
+.mat-basic-chip
+{
+  border-radius: 5px;
+>>>>>>> upstream/master
 }

@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 import { MockStore, MockAuthService, TEST_DATA } from '../../testing';
 import { RouterStub, RouterOutletStubComponent, RouterLinkStubDirective } from '../../testing';
 import { AppComponent } from './app.component';
-import { AuthenticationService } from '../../core/services';
+import { AuthenticationProvider } from '../../core/services';
 import { CategoryActions, TagActions, QuestionActions, UserActions } from '../../core/store/actions';
 
 describe('Component: AppComponent', () => {
@@ -20,7 +20,7 @@ describe('Component: AppComponent', () => {
   let _store: any;
   let _router: RouterStub;
   let _authService: MockAuthService;
-  
+
   //Define intial state and test state
   let _initialState = {
                         questionSaveStatus: "",
@@ -46,7 +46,7 @@ describe('Component: AppComponent', () => {
     providers:[
         CategoryActions, TagActions, QuestionActions,
         {provide: Router, useValue: new RouterStub() },
-        {provide: AuthenticationService, useValue: new MockAuthService() },
+        {provide: AuthenticationProvider, useValue: new MockAuthService() },
         {provide: Store, useValue: new MockStore(_initialState)}
       ]
     }).compileComponents();
@@ -56,8 +56,8 @@ describe('Component: AppComponent', () => {
     //get the injected instances
     _store = fixture.debugElement.injector.get(Store);
     _router = fixture.debugElement.injector.get(Router);
-    _authService = fixture.debugElement.injector.get(AuthenticationService);
-    
+    _authService = fixture.debugElement.injector.get(AuthenticationProvider);
+
     comp = fixture.componentInstance; // Component test instance
 
     // query for the title by CSS element selector
