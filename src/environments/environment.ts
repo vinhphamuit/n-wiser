@@ -17,5 +17,5 @@ export const CONFIG: IConfig = {
     storageBucket: 'ntrivia-86e25.appspot.com',
     messagingSenderId: '579311413632'
   },
-  'functionsUrl': 'https://us-central1-rwa-trivia-dev-e57fc.cloudfunctions.net/'
+  'functionsUrl': 'https://us-central1-ntrivia-86e25.cloudfunctions.net/'
 };
