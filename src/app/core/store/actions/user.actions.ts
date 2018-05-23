@@ -31,4 +31,12 @@ export class UserActions {
     };
   }
 
+
+  static LOAD_USER_PROFILE_ERROR = 'LOAD_USER_PROFILE_ERROR';
+  loadUserProfileError(user: User): ActionWithPayload<null> {
+    return {
+      type: UserActions.LOAD_USER_PROFILE_ERROR,
+      payload: null
+    };
+  }
 }
