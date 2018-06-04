@@ -9,6 +9,11 @@ import { CategoryActions, TagActions, QuestionActions, GameActions } from '../..
 import { Utils } from '../../core/services';
 import { AuthenticationProvider } from '../../core/auth';
 import { User } from '../../model';
+import { Location } from '@angular/common';
+import { userState } from '../../user/store';
+import * as gameplayactions from '../../game-play/store/actions';
+import * as userActions from '../../user/store/actions';
+
 
 @Component({
   selector: 'app-root',
@@ -20,6 +25,9 @@ export class AppComponent implements OnInit, OnDestroy {
   user: User;
   sub: Subscription;
   sub2: Subscription;
+  sub3: Subscription;
+  sub4: Subscription;
+  sub5: Subscription;
 
   theme = '';
   constructor(private renderer: Renderer2,
@@ -30,7 +38,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private gameActions: GameActions,
     private store: Store<AppState>,
     public router: Router,
-    public snackBar: MatSnackBar) {
+    public snackBar: MatSnackBar,
+    private location: Location) {
 
     this.sub = store.select(appState.coreState).select(s => s.questionSaveStatus).subscribe((status) => {
       if (status === 'SUCCESS') {
@@ -38,22 +47,43 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.sub = store.select(appState.userState).select(s => s.questionSaveStatus).subscribe((status) => {
-      if (status === 'IN PROGRESS') {
-        this.router.navigate(['/my/questions', this.user.userId]);
-      }
-    });
 
     this.sub2 = store.select(appState.coreState).select(s => s.user).skip(1).subscribe(user => {
       this.user = user
       if (user) {
         let url: string;
+        this.store.select(appState.coreState).select(s => s.invitationToken).subscribe(status => {
+          if (status !== 'NONE') {
+            this.store.dispatch(new userActions.MakeFriend({ token: status, email: this.user.email, userId: this.user.authState.uid }))
+          }
+        });
         this.store.select(appState.coreState).take(1).subscribe(s => url = s.loginRedirectUrl);
-        if (url)
+        if (url) {
           this.router.navigate([url]);
+        }
+
       } else {
-        // if user logs out then redirect to home page       
+        // if user logs out then redirect to home page
         this.router.navigate(['/']);
+      }
+    });
+
+    this.sub3 = this.store.select(appState.gameplayState).select(s => s.newGameId).filter(g => g !== '').subscribe(gameObj => {
+
+      //  console.log("Navigating to game: " + gameObj['gameId']);
+      this.router.navigate(['/game-play', gameObj['gameId']]);
+      this.store.dispatch(new gameplayactions.ResetCurrentQuestion());
+    });
+
+    this.sub4 = this.store.select(userState).select(s => s.userProfileSaveStatus).subscribe(status => {
+      if (status === 'MAKE FRIEND SUCCESS') {
+        this.router.navigate(['my/invite-friends']);
+      }
+    });
+
+    this.sub5 = store.select(appState.userState).select(s => s.questionSaveStatus).subscribe((status) => {
+      if (status === 'IN PROGRESS') {
+        this.router.navigate(['/my/questions']);
       }
     });
   }
@@ -63,7 +93,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    Utils.unsubscribe([this.sub, this.sub2]);
+    Utils.unsubscribe([this.sub, this.sub2, this.sub3, this.sub4, this.sub5]);
   }
 
   login() {
@@ -72,6 +102,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   logout() {
     this.authService.logout();
+    location.reload();
   }
 
   toggleTheme() {

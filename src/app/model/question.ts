@@ -20,6 +20,7 @@ export class Question {
   bulkUploadId?: string;
   reason?: string;
   validationErrorMessages?: string[];
+  userGivenAnswer?: string;
 
   static getViewModelFromDb(db: any): Question {
     const question: Question = new Question();
@@ -52,6 +53,7 @@ export class Question {
     question.questionText = source.questionText;
     question.status = source.status;
     question.tags = source.tags;
+    question.created_uid = source.created_uid;
 
     return question;
   }

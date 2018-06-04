@@ -15,7 +15,6 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 import * as bulkActions from '../../../bulk/store/actions';
 
 
-
 @Component({
   selector: 'question-table',
   templateUrl: './questions-table.component.html',
@@ -76,7 +75,7 @@ export class QuestionsTableComponent implements OnInit, OnChanges, AfterViewInit
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['questions'].currentValue !== changes['questions'].previousValue) {
+    if (changes['questions'] && changes['questions'].currentValue !== changes['questions'].previousValue) {
       (this.clientSidePagination) ? this.setClientSidePaginationDataSource(this.questions) : this.questionsSubject.next(this.questions);
       (changes['questions'].previousValue) ? this.setPagination() : '';
     }
@@ -85,7 +84,6 @@ export class QuestionsTableComponent implements OnInit, OnChanges, AfterViewInit
   ngAfterViewInit() {
     this.setPagination();
   }
-
 
   setPagination() {
     (this.clientSidePagination) ? this.questionsDS.paginator = this.paginator : '';
