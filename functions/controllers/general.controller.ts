@@ -15,39 +15,39 @@ import { QuestionBifurcation } from '../utils/question-bifurcation';
  * return status
  */
 exports.migrateCollections = (req, res) => {
-    console.log(req.params.collectionName);
+  console.log(req.params.collectionName);
 
-    const migration = new FirestoreMigration();
+  const migration = new FirestoreMigration();
 
-    switch (req.params.collectionName) {
-        case 'categories':
-            // Migrate categories
-            console.log('Migrating categories ...');
-            migration.migrateCategories.then(cats => { res.send(cats) });
-            break;
-        case 'tags':
-            // Migrate Tags
-            console.log('Migrating tags ...');
-            migration.migrateTags.then(tags => { res.send(tags) });
-            break;
-        case 'games':
-            // Migrate games
-            console.log('Migrating games ...');
-            migration.migrateGames('/games', 'games').then(q => { res.send('Game Count: ' + q) });
-            break;
-        case 'questions':
-            // Migrate questions
-            console.log('Migrating questions ...');
-            migration.migrateQuestions('/questions/published', 'questions').then(q => { res.send('Question Count: ' + q) });
-            break;
-        case 'unpublished_questions':
-            // Migrate unpublished questions
-            console.log('Migrating unpublished questions ...');
-            migration.migrateQuestions('/questions/unpublished', 'unpublished_questions').then(q => { res.send('Question Count: ' + q) });
-            break;
-    }
+  switch (req.params.collectionName) {
+    case 'categories':
+      // Migrate categories
+      console.log('Migrating categories ...');
+      migration.migrateCategories.then(cats => { res.send(cats) });
+      break;
+    case 'tags':
+      // Migrate Tags
+      console.log('Migrating tags ...');
+      migration.migrateTags.then(tags => { res.send(tags) });
+      break;
+    case 'games':
+      // Migrate games
+      console.log('Migrating games ...');
+      migration.migrateGames('/games', 'games').then(q => { res.send('Game Count: ' + q) });
+      break;
+    case 'questions':
+      // Migrate questions
+      console.log('Migrating questions ...');
+      migration.migrateQuestions('/questions/published', 'questions').then(q => { res.send('Question Count: ' + q) });
+      break;
+    case 'unpublished_questions':
+      // Migrate unpublished questions
+      console.log('Migrating unpublished questions ...');
+      migration.migrateQuestions('/questions/unpublished', 'unpublished_questions').then(q => { res.send('Question Count: ' + q) });
+      break;
+  }
 
-    res.send('Check firestore db for migration details');
+  res.send('Check firestore db for migration details');
 };
 
 
@@ -56,10 +56,10 @@ exports.migrateCollections = (req, res) => {
  * return status
  */
 exports.migrateProdCollectionsToDev = (req, res) => {
-    console.log(req.params.collectionName);
-    generalService.migrateCollection(req.params.collectionName).then((status) => {
-        res.send(status);
-    });
+  console.log(req.params.collectionName);
+  generalService.migrateCollection(req.params.collectionName).then((status) => {
+    res.send(status);
+  });
 };
 
 
@@ -68,9 +68,9 @@ exports.migrateProdCollectionsToDev = (req, res) => {
  * return status
  */
 exports.rebuildQuestionIndex = (req, res) => {
-    generalService.rebuildQuestionIndex().then((status) => {
-        res.send(status);
-    });
+  generalService.rebuildQuestionIndex().then((status) => {
+    res.send(status);
+  });
 };
 
 
@@ -79,7 +79,7 @@ exports.rebuildQuestionIndex = (req, res) => {
  * return status
  */
 exports.helloOperation = (req, res) => {
-    res.send(`Hello ${req.user.email}`);
+  res.send(`Hello ${req.user.email}`);
 };
 
 
@@ -88,9 +88,9 @@ exports.helloOperation = (req, res) => {
  * return status
  */
 exports.getTestQuestion = (req, res) => {
-    generalService.getTestQuestion().then((question) => {
-        res.send(question);
-    });
+  generalService.getTestQuestion().then((question) => {
+    res.send(question);
+  });
 };
 
 
@@ -99,9 +99,9 @@ exports.getTestQuestion = (req, res) => {
  * return status
  */
 exports.getGameQuestionTest = (req, res) => {
-    generalService.getGameQuestionTest().then((question) => {
-        res.send(question);
-    });
+  generalService.getGameQuestionTest().then((question) => {
+    res.send(question);
+  });
 };
 
 
@@ -110,7 +110,7 @@ exports.getGameQuestionTest = (req, res) => {
  * return status
  */
 exports.testES = (req, res) => {
-    generalService.testES(res);
+  generalService.testES(res);
 };
 
 
@@ -119,10 +119,10 @@ exports.testES = (req, res) => {
  * return status
  */
 exports.generateUsersStat = (req, res) => {
-    const gameLeaderBoardStats: GameLeaderBoardStats = new GameLeaderBoardStats();
-    gameLeaderBoardStats.generateGameStats().then((gameResults) => {
-        res.send('updated stats');
-    });
+  const gameLeaderBoardStats: GameLeaderBoardStats = new GameLeaderBoardStats();
+  gameLeaderBoardStats.generateGameStats().then((gameResults) => {
+    res.send('updated stats');
+  });
 };
 
 
@@ -131,10 +131,10 @@ exports.generateUsersStat = (req, res) => {
  * return status
  */
 exports.generateLeaderBoardStat = (req, res) => {
-    const gameLeaderBoardStats: GameLeaderBoardStats = new GameLeaderBoardStats();
-    gameLeaderBoardStats.calculateGameLeaderBoardStat().then((gameResults) => {
-        res.send('updated stats');
-    });
+  const gameLeaderBoardStats: GameLeaderBoardStats = new GameLeaderBoardStats();
+  gameLeaderBoardStats.calculateGameLeaderBoardStat().then((gameResults) => {
+    res.send('updated stats');
+  });
 };
 
 
@@ -143,10 +143,10 @@ exports.generateLeaderBoardStat = (req, res) => {
  * return status
  */
 exports.generateUserContributionStat = (req, res) => {
-    const userContributionStat: UserContributionStat = new UserContributionStat();
-    userContributionStat.generateGameStats().then((userDictResults) => {
-        res.send('updated user category stat');
-    });
+  const userContributionStat: UserContributionStat = new UserContributionStat();
+  userContributionStat.generateGameStats().then((userDictResults) => {
+    res.send('updated user category stat');
+  });
 };
 
 
@@ -155,66 +155,60 @@ exports.generateUserContributionStat = (req, res) => {
  * return status
  */
 exports.generateSystemStat = (req, res) => {
-    const systemStatsCalculations: SystemStatsCalculations = new SystemStatsCalculations();
-    systemStatsCalculations.generateSystemStats().then((stats) => {
-        res.send('updated system stat');
-    });
+  const systemStatsCalculations: SystemStatsCalculations = new SystemStatsCalculations();
+  systemStatsCalculations.generateSystemStats().then((stats) => {
+    res.send('updated system stat');
+  });
 };
-<<<<<<< HEAD
-=======
-
->>>>>>> upstream/part-19
 /**
  * update bulk upload collection by adding isUserArchived or isAdminArchived based on user role
  * return status
  */
 exports.updateBulkUploadCollection = (req, res) => {
-    const bulkUploadUpdate: BulkUploadUpdate = new BulkUploadUpdate();
-    bulkUploadUpdate.getUserList().then((bulkUploadResults) => {
-        res.send('updated bulk upload collection');
-    });
+  const bulkUploadUpdate: BulkUploadUpdate = new BulkUploadUpdate();
+  bulkUploadUpdate.getUserList().then((bulkUploadResults) => {
+    res.send('updated bulk upload collection');
+  });
 
 }
-<<<<<<< HEAD
-=======
 
 /**
  * generateBlogsData
  * return status
  */
 exports.generateBlogsData = (req, res) => {
-    const blogs: Array<Blog> = [];
+  const blogs: Array<Blog> = [];
 
-    Feed.load(RSSFeedConstants.feedURL, function (err, rss) {
+  Feed.load(RSSFeedConstants.feedURL, function (err, rss) {
 
-        let index = 0;
-        let viewCount = 100;
-        let commentCount = 5;
-        let items = rss.items.sort((itemA: Blog, itemB: Blog) => {
-            return new Date(itemB.pubDate).getTime() - new Date(itemA.pubDate).getTime()
-        });
-        items = items.slice(0, 3);
-        items.map((item) => {
-            const blog: Blog = item;
-            blog.blogNo = index;
-            blog.commentCount = commentCount;
-            blog.viewCount = viewCount;
-            blog.share_status = false;
-            delete blog['description'];
-            const result = blog.content.match(/<em>(.*?)<\/em>/g).map(function (val) {
-                return val.replace(/<\/?em>/g, '');
-            });
-            blog.subtitle = result[0];
-            blogs.push({ ...blog });
-            index++;
-            viewCount = viewCount + Math.floor((Math.random() * 100) + 1);
-            commentCount = commentCount + Math.floor((Math.random() * 5) + 1);
-        });
-        console.log('blogs', blogs);
-        blogService.setBlog(blogs).then((ref) => {
-            res.send('created feed blogs');
-        });
+    let index = 0;
+    let viewCount = 100;
+    let commentCount = 5;
+    let items = rss.items.sort((itemA: Blog, itemB: Blog) => {
+      return new Date(itemB.pubDate).getTime() - new Date(itemA.pubDate).getTime()
     });
+    items = items.slice(0, 3);
+    items.map((item) => {
+      const blog: Blog = item;
+      blog.blogNo = index;
+      blog.commentCount = commentCount;
+      blog.viewCount = viewCount;
+      blog.share_status = false;
+      delete blog['description'];
+      const result = blog.content.match(/<em>(.*?)<\/em>/g).map(function (val) {
+        return val.replace(/<\/?em>/g, '');
+      });
+      blog.subtitle = result[0];
+      blogs.push({ ...blog });
+      index++;
+      viewCount = viewCount + Math.floor((Math.random() * 100) + 1);
+      commentCount = commentCount + Math.floor((Math.random() * 5) + 1);
+    });
+    console.log('blogs', blogs);
+    blogService.setBlog(blogs).then((ref) => {
+      res.send('created feed blogs');
+    });
+  });
 };
 
 /**
@@ -222,22 +216,21 @@ exports.generateBlogsData = (req, res) => {
  * return status
  */
 exports.updateQuestionCollection = (req, res) => {
-    console.log(req.params.collectionName);
-    const questionBifurcation: QuestionBifurcation = new QuestionBifurcation();
-    switch (req.params.collectionName) {
-        case 'questions':
-            console.log('Updating questions ...');
-            questionBifurcation.getQuestionList(req.params.collectionName).then((bulkUploadResults) => {
-                res.send('updated question collection');
-            });
-            break;
-        case 'unpublished_questions':
-            console.log('Updating unpublished questions ...');
-            questionBifurcation.getQuestionList(req.params.collectionName).then((bulkUploadResults) => {
-                res.send('updated unpublished question collection');
-            });
-            break;
-    }
+  console.log(req.params.collectionName);
+  const questionBifurcation: QuestionBifurcation = new QuestionBifurcation();
+  switch (req.params.collectionName) {
+    case 'questions':
+      console.log('Updating questions ...');
+      questionBifurcation.getQuestionList(req.params.collectionName).then((bulkUploadResults) => {
+        res.send('updated question collection');
+      });
+      break;
+    case 'unpublished_questions':
+      console.log('Updating unpublished questions ...');
+      questionBifurcation.getQuestionList(req.params.collectionName).then((bulkUploadResults) => {
+        res.send('updated unpublished question collection');
+      });
+      break;
+  }
 
 }
->>>>>>> upstream/part-19

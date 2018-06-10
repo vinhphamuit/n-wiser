@@ -1,7 +1,7 @@
 
 
 express = require('express'),
-    router = express.Router();
+  router = express.Router();
 
 const questionAuth = require('../middlewares/auth');
 

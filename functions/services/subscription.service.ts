@@ -7,5 +7,5 @@ import { User } from '../../src/app/model';
  * return subscription
  */
 exports.getSubscriptions = (): Promise<any> => {
-    return subscriptionFireStoreClient.collection('subscription').get().then((snapshot) => { return snapshot });
+  return subscriptionFireStoreClient.collection('subscription').get().then((snapshot) => { return snapshot });
 };

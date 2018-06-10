@@ -7,9 +7,9 @@ const questionFireStoreClient = questionFireBaseClient.firestore();
  * return questions
  */
 exports.getAllQuestions = (): Promise<any> => {
-    return questionFireStoreClient.collection('questions')
-        .get()
-        .then(questions => { return questions });
+  return questionFireStoreClient.collection('questions')
+    .get()
+    .then(questions => { return questions });
 };
 
 
@@ -18,9 +18,9 @@ exports.getAllQuestions = (): Promise<any> => {
  * return question
  */
 exports.getQuestionById = (questionId): Promise<any> => {
-    return questionFireStoreClient.doc(`/questions/${questionId}`)
-        .get()
-        .then((qs) => { return qs });
+  return questionFireStoreClient.doc(`/questions/${questionId}`)
+    .get()
+    .then((qs) => { return qs });
 };
 
 /**
@@ -28,12 +28,12 @@ exports.getQuestionById = (questionId): Promise<any> => {
  * return questions
  */
 exports.getQuestion = (collectionName): Promise<any> => {
-    return questionFireStoreClient.collection(`${collectionName}`)
-        .get().then(questions => { return questions })
-        .catch(error => {
-            console.error(error);
-            return error;
-        });
+  return questionFireStoreClient.collection(`${collectionName}`)
+    .get().then(questions => { return questions })
+    .catch(error => {
+      console.error(error);
+      return error;
+    });
 };
 
 /**
@@ -41,10 +41,10 @@ exports.getQuestion = (collectionName): Promise<any> => {
  * return ref
  */
 exports.updateQuestion = (collectionName: string, question: any): Promise<any> => {
-    return questionFireStoreClient.doc(`/${collectionName}/${question.id}`).set(question).then(ref => { return ref })
-        .catch(error => {
-            console.error(error);
-            return error;
-        });
+  return questionFireStoreClient.doc(`/${collectionName}/${question.id}`).set(question).then(ref => { return ref })
+    .catch(error => {
+      console.error(error);
+      return error;
+    });
 };
 

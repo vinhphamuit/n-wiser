@@ -5,9 +5,9 @@ const friendFireStoreClient = friendFireBaseClient.firestore();
  * return invitation
  */
 exports.getInvitationByToken = (token: any): Promise<any> => {
-    return friendFireStoreClient.doc(`/invitations/${token}`)
-        .get()
-        .then(invitation => { return invitation });
+  return friendFireStoreClient.doc(`/invitations/${token}`)
+    .get()
+    .then(invitation => { return invitation });
 };
 
 
@@ -16,9 +16,9 @@ exports.getInvitationByToken = (token: any): Promise<any> => {
  * return friend
  */
 exports.getFriendByInvitee = (invitee: any): Promise<any> => {
-    return friendFireStoreClient.doc(`/friends/${invitee}`)
-        .get()
-        .then(friend => { return friend });
+  return friendFireStoreClient.doc(`/friends/${invitee}`)
+    .get()
+    .then(friend => { return friend });
 };
 
 
@@ -27,9 +27,9 @@ exports.getFriendByInvitee = (invitee: any): Promise<any> => {
  * return ref
  */
 exports.updateFriend = (myFriends: any, invitee: any): Promise<any> => {
-    return friendFireStoreClient.doc(`/friends/${invitee}`)
-        .update({ myFriends: myFriends })
-        .then(ref => { return ref });
+  return friendFireStoreClient.doc(`/friends/${invitee}`)
+    .update({ myFriends: myFriends })
+    .then(ref => { return ref });
 };
 
 
@@ -38,8 +38,8 @@ exports.updateFriend = (myFriends: any, invitee: any): Promise<any> => {
  * return ref
  */
 exports.setFriend = (dbUser: any, invitee: any): Promise<any> => {
-    return friendFireStoreClient.doc(`/friends/${invitee}`)
-        .set(dbUser)
-        .then(ref => { return ref });
+  return friendFireStoreClient.doc(`/friends/${invitee}`)
+    .set(dbUser)
+    .then(ref => { return ref });
 };
 

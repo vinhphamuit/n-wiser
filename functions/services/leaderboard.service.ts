@@ -6,12 +6,12 @@ const leaderBoardFireStoreClient = leaderBoardFireBaseClient.firestore();
  * return leaderoardstat
  */
 exports.getLeaderBoardStats = (userId: string): Promise<any> => {
-    return leaderBoardFireStoreClient.doc('leader_board_stats/categories')
-        .get().then(lbs => { return lbs })
-        .catch(error => {
-            console.error(error);
-            return error;
-        });
+  return leaderBoardFireStoreClient.doc('leader_board_stats/categories')
+    .get().then(lbs => { return lbs })
+    .catch(error => {
+      console.error(error);
+      return error;
+    });
 };
 
 
@@ -20,10 +20,10 @@ exports.getLeaderBoardStats = (userId: string): Promise<any> => {
  * return ref
  */
 exports.setLeaderBoardStats = (leaderBoardStat: any): Promise<any> => {
-    return leaderBoardFireStoreClient.doc('/leader_board_stats/categories').set(leaderBoardStat).then(ref => { return ref })
-        .catch(error => {
-            console.error(error);
-            return error;
-        });
+  return leaderBoardFireStoreClient.doc('/leader_board_stats/categories').set(leaderBoardStat).then(ref => { return ref })
+    .catch(error => {
+      console.error(error);
+      return error;
+    });
 };
 

@@ -1,6 +1,6 @@
 
 let express = require('express'),
-    router = express.Router();
+  router = express.Router();
 
 const questionRoutes = require('./question-routes');
 const gameRoutes = require('./game-routes');

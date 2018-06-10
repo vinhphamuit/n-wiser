@@ -3,7 +3,7 @@ const functionFireStoreClient = functionFireBaseClient.firestore();
 const functions = require('firebase-functions');
 const fs = require('fs');
 const path = require('path');
-const mailConfig = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../../config/mail.config.json'), 'utf8'));
+// const mailConfig = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../../config/mail.config.json'), 'utf8'));
 
 
 import {
@@ -14,7 +14,7 @@ import { ESUtils } from '../utils/ESUtils';
 import { GameLeaderBoardStats } from '../utils/game-leader-board-stats';
 import { UserContributionStat } from '../utils/user-contribution-stat';
 import { FriendGameStats } from '../utils/friend-game-stats';
-import { MailClient } from '../utils/mail-client';
+// import { MailClient } from '../utils/mail-client';
 import { SystemStatsCalculations } from '../utils/system-stats-calculations';
 
 // Take the text parameter passed to this HTTP endpoint and insert it into the
@@ -60,22 +60,22 @@ exports.onQuestionWrite = functions.firestore.document('/questions/{questionId}'
 
 
 
-exports.onInvitationWrite = functions.firestore.document('/invitations/{invitationId}').onWrite((change, context) => {
+// exports.onInvitationWrite = functions.firestore.document('/invitations/{invitationId}').onWrite((change, context) => {
 
-    const beforeEventData = change.before.data();
-    const afterEventData = change.after.data();
+//     const beforeEventData = change.before.data();
+//     const afterEventData = change.after.data();
 
-    if (afterEventData !== beforeEventData && mailConfig.enableMail) {
-        const invitation: Invitation = afterEventData;
-        const url = `${mailConfig.hosturl}${invitation.id}`;
-        const htmlContent = `<a href="${url}">Accept Invitation</a>`;
-        const mail: MailClient = new MailClient(invitation.email, TriggerConstants.invitationMailSubject,
-            TriggerConstants.invitationTxt, htmlContent);
-        mail.sendMail();
+//     if (afterEventData !== beforeEventData && mailConfig.enableMail) {
+//         const invitation: Invitation = afterEventData;
+//         const url = `${mailConfig.hosturl}${invitation.id}`;
+//         const htmlContent = `<a href="${url}">Accept Invitation</a>`;
+//         const mail: MailClient = new MailClient(invitation.email, TriggerConstants.invitationMailSubject,
+//             TriggerConstants.invitationTxt, htmlContent);
+//         mail.sendMail();
 
-    }
+//     }
 
-});
+// });
 
 
 // update stats based on gamr creation

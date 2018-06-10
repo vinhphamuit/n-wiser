@@ -6,12 +6,12 @@ export const environment = {
 
 export const CONFIG: IConfig = {
   'firebaseConfig' : {
-      apiKey: 'AIzaSyDIEpabJv44Iu7go6M30T3WAF-GlSMcR7Y',
-      authDomain: 'rwa-trivia.firebaseapp.com',
-      databaseURL: 'https://rwa-trivia.firebaseio.com',
-      projectId: 'rwa-trivia',
-      storageBucket: 'rwa-trivia.appspot.com',
-      messagingSenderId: '479350787602'
+    apiKey: 'AIzaSyAMzothQWENfYx_dcMySLdRvsJbmc7xkxo',
+    authDomain: 'ntrivia-86e25.firebaseapp.com',
+    databaseURL: 'https://ntrivia-86e25.firebaseio.com',
+    projectId: 'ntrivia-86e25',
+    storageBucket: 'ntrivia-86e25.appspot.com',
+    messagingSenderId: '579311413632'
   },
-   'functionsUrl': 'https://us-central1-rwa-trivia.cloudfunctions.net'
+   'functionsUrl': 'https://us-central1-ntrivia-86e25.cloudfunctions.net'
 };

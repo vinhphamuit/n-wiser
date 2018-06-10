@@ -6,12 +6,12 @@ const bulkUploadFireStoreClient = bulkUploadFireBaseClient.firestore();
  * return bulkData
  */
 exports.getBulkUpload = (): Promise<any> => {
-    return bulkUploadFireStoreClient.collection('bulk_uploads')
-        .get().then(bulkData => { return bulkData })
-        .catch(error => {
-            console.error(error);
-            return error;
-        });
+  return bulkUploadFireStoreClient.collection('bulk_uploads')
+    .get().then(bulkData => { return bulkData })
+    .catch(error => {
+      console.error(error);
+      return error;
+    });
 };
 
 /**
@@ -19,9 +19,9 @@ exports.getBulkUpload = (): Promise<any> => {
  * return ref
  */
 exports.setBulkUpload = (dbBulkUpload: any): Promise<any> => {
-    return bulkUploadFireStoreClient.doc(`/bulk_uploads/${dbBulkUpload.id}`).set(dbBulkUpload).then(ref => { return ref })
-        .catch(error => {
-            console.error(error);
-            return error;
-        });
+  return bulkUploadFireStoreClient.doc(`/bulk_uploads/${dbBulkUpload.id}`).set(dbBulkUpload).then(ref => { return ref })
+    .catch(error => {
+      console.error(error);
+      return error;
+    });
 };
