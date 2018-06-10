@@ -5,14 +5,14 @@
       <ul>
         <li *ngFor="let user of leaderBoardStatDict[cat] | slice:lbsUsersSliceStartIndex:lbsUsersSliceLastIndex;let j=index;">
           <div class="row">
-            <div class="col-xs-2 has">#{{index}}</div>
+            <div class="col-xs-2 has">#{{j+1}}</div>
             <div class="col-xs-3 yourimg">
               <img *ngIf="!userDict[user.userId]?.profilePictureUrl" src="assets/images/default-avatar.png">
               <img *ngIf="userDict[user.userId]?.profilePictureUrl" [src]="userDict[user.userId]?.profilePictureUrl" />
             </div>
-            <div class="col-xs-4">
-              <label href="#" class="dark">{{userDict[user.userId]?.displayName}}</label>
-              <div class="light">{{userDict[user.userId]?.location}}</div>
+            <div class="col-xs-4 ellipsis">
+              <label href="#" class="dark" title="{{userDict[user.userId]?.displayName}}">{{userDict[user.userId]?.displayName}}</label>
+              <div class="light"  title="{{userDict[user.userId]?.location}}">{{userDict[user.userId]?.location}}</div>
             </div>
             <div class="col-xs-3">
               <div class="dark">{{user.score}}</div>
