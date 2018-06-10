@@ -42,7 +42,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
         }
 
-        //return all others errors 
+        // return all others errors 
         return Observable.throw(error);
 
       }) as any;
