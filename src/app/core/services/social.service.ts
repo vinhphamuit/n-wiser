@@ -57,8 +57,6 @@ export class SocialService {
         const socialShareImageObj = this.storage.upload(`${this.basePath}/${userId}/${this.folderPath}/${new Date().getTime()}`, imageBlob);
         return socialShareImageObj.downloadURL().map(url => url);
     }
-<<<<<<< HEAD
-=======
 
 
     loadBlogs(): Observable<Blog[]> {
@@ -69,5 +67,4 @@ export class SocialService {
                 return Observable.of(null);
             });
     }
->>>>>>> upstream/part-19
 }
