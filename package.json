@@ -48,7 +48,7 @@
     "@ngrx/store-devtools": "5.0.1",
     "@ngx-share/button": "^5.3.1",
     "@ngx-share/core": "^5.3.1",
-    "angularfire2": "^5.0.0-rc.6",
+    "angularfire2": "5.0.0-rc.6",
     "core-js": "2.5.3",
     "csv": "^2.0.0",
     "dom-to-image": "^2.6.0",
