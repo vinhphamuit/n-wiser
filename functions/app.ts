@@ -7,7 +7,7 @@ const path = require('path');
 express = require('express');
 const cookieParser = require('cookie-parser')();
 const bodyParser = require('body-parser');
-const cors = require('cors')({ origin: false });
+const cors = require('cors')({ origin: true });
 const app = express();
 require('./db/firebase-functions').addMessage(functions);
 

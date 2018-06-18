@@ -7,8 +7,8 @@ const path = require('path');
 
 
 import {
-    Game, Question, Category, User, UserStatConstants, Invitation,
-    TriggerConstants, PlayerMode, OpponentType
+  Game, Question, Category, User, UserStatConstants, Invitation,
+  TriggerConstants, PlayerMode, OpponentType
 } from '../../src/app/model';
 import { ESUtils } from '../utils/ESUtils';
 import { GameLeaderBoardStats } from '../utils/game-leader-board-stats';
@@ -21,40 +21,40 @@ import { SystemStatsCalculations } from '../utils/system-stats-calculations';
 // Realtime Database under the path /messages/:pushId/original
 exports.addMessage = (firebaseFunctions: any) => {
 
-    firebaseFunctions.https.onRequest((req, res) => {
-        // Grab the text parameter.
+  firebaseFunctions.https.onRequest((req, res) => {
+    // Grab the text parameter.
 
-        const original = req.query.text;
-        // Push it into the Realtime Database then send a response
-        functionFireBaseClient.database().ref('/messages').push({ original: original }).then(snapshot => {
-            // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
-            res.redirect(303, snapshot.ref);
-        });
+    const original = req.query.text;
+    // Push it into the Realtime Database then send a response
+    functionFireBaseClient.database().ref('/messages').push({ original: original }).then(snapshot => {
+      // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
+      res.redirect(303, snapshot.ref);
     });
+  });
 
 };
 
 exports.onQuestionWrite = functions.firestore.document('/questions/{questionId}').onWrite((change, context) => {
 
-    const data = change.after.data();
+  const data = change.after.data();
 
-    if (data) {
-        // add or update
-        ESUtils.createOrUpdateIndex(ESUtils.QUESTIONS_INDEX, data.categoryIds['0'], data, context.params.questionId);
+  if (data) {
+    // add or update
+    ESUtils.createOrUpdateIndex(ESUtils.QUESTIONS_INDEX, data.categoryIds['0'], data, context.params.questionId);
 
-        const question: Question = data;
-        const userContributionStat: UserContributionStat = new UserContributionStat();
-        userContributionStat.getUser(question.created_uid, UserStatConstants.initialContribution).then((userDictResults) => {
-            console.log('updated user category stat');
-        });
-        const systemStatsCalculations: SystemStatsCalculations = new SystemStatsCalculations();
-        systemStatsCalculations.updateSystemStats('total_questions').then((stats) => {
-            console.log(stats);
-        });
-    } else {
-        // delete
-        ESUtils.removeIndex(ESUtils.QUESTIONS_INDEX, context.params.questionId);
-    }
+    const question: Question = data;
+    const userContributionStat: UserContributionStat = new UserContributionStat();
+    userContributionStat.getUser(question.created_uid, UserStatConstants.initialContribution).then((userDictResults) => {
+      console.log('updated user category stat');
+    });
+    const systemStatsCalculations: SystemStatsCalculations = new SystemStatsCalculations();
+    systemStatsCalculations.updateSystemStats('total_questions').then((stats) => {
+      console.log(stats);
+    });
+  } else {
+    // delete
+    ESUtils.removeIndex(ESUtils.QUESTIONS_INDEX, context.params.questionId);
+  }
 
 });
 
@@ -81,44 +81,44 @@ exports.onQuestionWrite = functions.firestore.document('/questions/{questionId}'
 // update stats based on gamr creation
 exports.onGameCreate = functions.firestore.document('/games/{gameId}').onCreate((snap, context) => {
 
-    const data = snap.data();
+  const data = snap.data();
 
-    if (data) {
-        console.log('game data created');
-        const systemStatsCalculations: SystemStatsCalculations = new SystemStatsCalculations();
-        systemStatsCalculations.updateSystemStats('active_games').then((stats) => {
-            console.log(stats);
-        });
-    }
+  if (data) {
+    console.log('game data created');
+    const systemStatsCalculations: SystemStatsCalculations = new SystemStatsCalculations();
+    systemStatsCalculations.updateSystemStats('active_games').then((stats) => {
+      console.log(stats);
+    });
+  }
 
 });
 
 
 exports.onGameUpdate = functions.firestore.document('/games/{gameId}').onUpdate((change, context) => {
 
-    const beforeEventData = change.before.data();
-    const afterEventData = change.after.data();
+  const beforeEventData = change.before.data();
+  const afterEventData = change.after.data();
 
-    if (afterEventData !== beforeEventData) {
-        console.log('data changed');
-        const game: Game = Game.getViewModel(afterEventData);
-        if (game.gameOver) {
+  if (afterEventData !== beforeEventData) {
+    console.log('data changed');
+    const game: Game = Game.getViewModel(afterEventData);
+    if (game.gameOver) {
 
-            const gameLeaderBoardStats: GameLeaderBoardStats = new GameLeaderBoardStats();
-            gameLeaderBoardStats.getGameUsers(game).then((status) => {
-                console.log('status', status);
-            });
+      const gameLeaderBoardStats: GameLeaderBoardStats = new GameLeaderBoardStats();
+      gameLeaderBoardStats.getGameUsers(game).then((status) => {
+        console.log('status', status);
+      });
 
-            if (Number(game.gameOptions.playerMode) === PlayerMode.Opponent &&
-                Number(game.gameOptions.opponentType) === OpponentType.Friend) {
-                const friendGameStats: FriendGameStats = new FriendGameStats();
-                friendGameStats.calculateFriendsGameState(game).then((status1) => {
-                    console.log('friend stat status', status1);
-                });
-            }
+      if (Number(game.gameOptions.playerMode) === PlayerMode.Opponent &&
+        Number(game.gameOptions.opponentType) === OpponentType.Friend) {
+        const friendGameStats: FriendGameStats = new FriendGameStats();
+        friendGameStats.calculateFriendsGameState(game).then((status1) => {
+          console.log('friend stat status', status1);
+        });
+      }
 
-        }
     }
+  }
 });
 
 
@@ -126,34 +126,34 @@ exports.onGameUpdate = functions.firestore.document('/games/{gameId}').onUpdate(
 // update stats based on user creation
 exports.onUserCreate = functions.firestore.document('/users/{userId}').onCreate((snap, context) => {
 
-    const data = snap.data();
+  const data = snap.data();
 
-    if (data) {
-        console.log('user data created');
-        const systemStatsCalculations: SystemStatsCalculations = new SystemStatsCalculations();
-        systemStatsCalculations.updateSystemStats('total_users').then((stats) => {
-            console.log(stats);
-        });
-    }
+  if (data) {
+    console.log('user data created');
+    const systemStatsCalculations: SystemStatsCalculations = new SystemStatsCalculations();
+    systemStatsCalculations.updateSystemStats('total_users').then((stats) => {
+      console.log(stats);
+    });
+  }
 
 });
 
 exports.onUserUpdate = functions.firestore.document('/users/{userId}').onUpdate((change, context) => {
 
-    const beforeEventData = change.before.data();
-    const afterEventData = change.after.data();
+  const beforeEventData = change.before.data();
+  const afterEventData = change.after.data();
 
-    if (afterEventData !== beforeEventData) {
-        console.log('data changed');
-        const userObj: User = afterEventData;
-        const gameLeaderBoardStats: GameLeaderBoardStats = new GameLeaderBoardStats();
-        gameLeaderBoardStats.getLeaderBoardStat().then((lbsStats) => {
-            lbsStats = gameLeaderBoardStats.calculateLeaderBoardStat(userObj, lbsStats);
-            console.log('lbsStats', lbsStats);
-            gameLeaderBoardStats.updateLeaderBoard({ ...lbsStats }).then((leaderBoardStat) => {
-                // console.log('leaderBoardStat', leaderBoardStat);
-            });
-        });
-    }
+  if (afterEventData !== beforeEventData) {
+    console.log('data changed');
+    const userObj: User = afterEventData;
+    const gameLeaderBoardStats: GameLeaderBoardStats = new GameLeaderBoardStats();
+    gameLeaderBoardStats.getLeaderBoardStat().then((lbsStats) => {
+      lbsStats = gameLeaderBoardStats.calculateLeaderBoardStat(userObj, lbsStats);
+      console.log('lbsStats', lbsStats);
+      gameLeaderBoardStats.updateLeaderBoard({ ...lbsStats }).then((leaderBoardStat) => {
+        // console.log('leaderBoardStat', leaderBoardStat);
+      });
+    });
+  }
 
 });
