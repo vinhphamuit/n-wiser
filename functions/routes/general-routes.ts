@@ -20,7 +20,8 @@ router.get('/leaderboard/stat', generalAuth.adminOnly, generalController.generat
 router.get('/user/contribution/stat', generalAuth.adminOnly, generalController.generateUserContributionStat);
 router.post('/stat/system', generalAuth.adminOnly, generalController.generateSystemStat);
 router.get('/bulkupload/update', generalAuth.adminOnly, generalController.updateBulkUploadCollection);
+router.post('/question/update/:collectionName', generalAuth.adminOnly, generalController.updateQuestionCollection);
 router.post('/blog', generalAuth.authTokenOnly, generalController.generateBlogsData);
-router.post('/question/update/:collectionName', generalController.updateQuestionCollection);
+router.post('/auth-users', generalAuth.authTokenOnly, generalController.dumpAuthUsersInFirestore);
 
 module.exports = router;
