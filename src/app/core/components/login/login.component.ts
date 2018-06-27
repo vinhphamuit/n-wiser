@@ -66,9 +66,11 @@ export class LoginComponent implements OnInit {
           this.loginForm.get('password').value
         ).then((user: any) => {
           //success
+          swal('Sucessful!', 'You\'ve logged in', 'success');
           this.dialogRef.close();
         }, (error: Error) => {
           //error
+          swal('Error!', 'Wrong email or Password!', 'error');
           console.log(error);
         });
         break;
@@ -82,7 +84,7 @@ export class LoginComponent implements OnInit {
           this.dialogRef.close();
           if(user && !user.emailVerified){
             user.sendEmailVerification().then(function(){
-              console.log("email verification sent to user");
+              console.log('email verification sent to user');
             });
           }
         }, (error: Error) => {
@@ -94,7 +96,7 @@ export class LoginComponent implements OnInit {
         //Forgot Password
         firebase.auth().sendPasswordResetEmail(this.loginForm.get('email').value)
         .then((a: any) => {
-          console.log("success. check your email");
+          console.log('success. check your email');
         },
         (error: Error) => {
           console.log(error);

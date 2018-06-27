@@ -22,7 +22,6 @@ import {
   AppComponent, DashboardComponent,
   SideNavComponent, HeaderComponent, FooterComponent, InvitationRedirectionComponent
 } from './components';
-
 @NgModule({
   declarations: [
     AppComponent,

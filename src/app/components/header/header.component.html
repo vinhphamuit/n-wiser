@@ -6,6 +6,11 @@
           <img src="/assets/images/logo.png"> &nbsp;&nbsp;&nbsp;under development</a>
       </div>
       <div class="col-xs-6 pull-right align-right">
+        <div class="btn-group">
+            <button *ngFor="let lang of supportedLangs" (click)="selectLang(lang.value)" class="btn btn-default" [class.btn-primary]="isCurrentLang(lang.value)">
+                  {{ lang.display }}
+            </button>
+        </div>
         <div class="headerdrop">
           <a (click)="toggleThemeClicked.emit($event)">
             <mat-icon mat-list-icon>flip</mat-icon>
