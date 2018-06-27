@@ -60,22 +60,22 @@ exports.onQuestionWrite = functions.firestore.document('/questions/{questionId}'
 
 
 
-exports.onInvitationWrite = functions.firestore.document('/invitations/{invitationId}').onWrite((change, context) => {
+// exports.onInvitationWrite = functions.firestore.document('/invitations/{invitationId}').onWrite((change, context) => {
 
-    const beforeEventData = change.before.data();
-    const afterEventData = change.after.data();
+//     const beforeEventData = change.before.data();
+//     const afterEventData = change.after.data();
 
-    if (afterEventData !== beforeEventData && mailConfig.enableMail) {
-        const invitation: Invitation = afterEventData;
-        const url = `${mailConfig.hosturl}${invitation.id}`;
-        const htmlContent = `You have a new invitation request. Click <a href="${url}">Accept Invitation</a> to accept the invitation.`;
-        const mail: MailClient = new MailClient(invitation.email, TriggerConstants.invitationMailSubject,
-            TriggerConstants.invitationTxt, htmlContent);
-        mail.sendMail();
+//     if (afterEventData !== beforeEventData && mailConfig.enableMail) {
+//         const invitation: Invitation = afterEventData;
+//         const url = `${mailConfig.hosturl}${invitation.id}`;
+//         const htmlContent = `You have a new invitation request. Click <a href="${url}">Accept Invitation</a> to accept the invitation.`;
+//         const mail: MailClient = new MailClient(invitation.email, TriggerConstants.invitationMailSubject,
+//             TriggerConstants.invitationTxt, htmlContent);
+//         mail.sendMail();
 
-    }
+//     }
 
-});
+// });
 
 
 // update stats based on gamr creation

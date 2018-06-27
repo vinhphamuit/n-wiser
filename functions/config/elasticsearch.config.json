@@ -1,6 +1,6 @@
 {
     "hosts": [
-      "https://104.154.154.251:8443"
+      "https://35.226.11.98:8443"
     ],
     "log": "trace",
     "httpAuth": "ntrivia:s3cr3t",
