@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import swal from 'sweetalert';
 
 const EMAIL_REGEXP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -14,12 +15,11 @@ const EMAIL_REGEXP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+
 export class LoginComponent implements OnInit {
   mode: SignInMode;
   loginForm: FormGroup;
-  
   constructor(private fb: FormBuilder,
               private afAuth: AngularFireAuth,
               private dialog: MatDialog,
               public dialogRef: MatDialogRef<LoginComponent>) {
-    this.mode = SignInMode.signIn;  //default
+    this.mode = SignInMode.signIn;  // default
   }
 
   ngOnInit() {
@@ -31,18 +31,18 @@ export class LoginComponent implements OnInit {
       }, {validator: loginFormValidator}
     );
 
-    this.loginForm.get('mode').valueChanges.subscribe((mode: number) => {     
+    this.loginForm.get('mode').valueChanges.subscribe((mode: number) => {
       switch (mode) {
         case 1:
-          //Signup
+          // Signup
           this.loginForm.get('confirmPassword').setValidators([Validators.required, Validators.minLength(6)]);
-          //no break - fall thru
+          // no break - fall thru
         case 0:
-          //Login or Signup
+          // Login or Signup
           this.loginForm.get('password').setValidators([Validators.required, Validators.minLength(6)]);
           break;
         default:
-          //Forgot Password
+          // Forgot Password
           this.loginForm.get('password').clearValidators();
           this.loginForm.get('confirmPassword').clearValidators();
       }
@@ -56,38 +56,39 @@ export class LoginComponent implements OnInit {
     }
     switch (this.mode) {
       case 0:
-        //Login
+        // Login
         this.afAuth.auth.signInWithEmailAndPassword(
           this.loginForm.get('email').value,
           this.loginForm.get('password').value
         ).then((user: any) => {
-          //success
+          // success
           this.dialogRef.close();
         }, (error: Error) => {
-          //error
+          // error
+          swal('Error!', error.message, 'error');
           console.log(error);
         });
         break;
       case 1:
-        //Signup
+        // Signup
         this.afAuth.auth.createUserWithEmailAndPassword(
           this.loginForm.get('email').value,
           this.loginForm.get('password').value
         ).then((user: any) => {
-          //success
+          // success
           this.dialogRef.close();
-          if(user && !user.emailVerified){
-            user.sendEmailVerification().then(function(){
+          if(user && !user.emailVerified) {
+            user.sendEmailVerification().then(function() {
               console.log("email verification sent to user");
             });
           }
         }, (error: Error) => {
-          //error
+          // error
           console.log(error);
         });
         break;
       case 2:
-        //Forgot Password
+        // Forgot Password
         firebase.auth().sendPasswordResetEmail(this.loginForm.get('email').value)
         .then((a: any) => {
           console.log("success. check your email");
