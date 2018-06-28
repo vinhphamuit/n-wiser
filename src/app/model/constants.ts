@@ -10,7 +10,7 @@ export enum UserStatConstants {
 
 export enum TriggerConstants {
     invitationTxt = 'Please accept invitation to play Trivia Game',
-    invitationMailSubject = 'bitwiser.io: Friend Request',
+    invitationMailSubject = 'n wiser: Friend Request',
     fromUser = 'support@trivia.com'
 }
 
