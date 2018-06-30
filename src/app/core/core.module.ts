@@ -41,33 +41,33 @@ export const firebaseConfig: FirebaseAppConfig = CONFIG.firebaseConfig;
     LoginComponent
   ],
   imports: [
-    //firebase
+    // firebase
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
 
-    //store
+    // store
     StoreModule.forFeature('core', reducer),
-    //StoreModule.forRoot(reducer),
+    // StoreModule.forRoot(reducer),
 
-    //ngrx effects
+    // ngrx effects
     EffectsModule.forFeature(effects),
 
-    //rwa module
+    // n module
     SharedModule
   ],
   providers: [
-    //Services
+    // Services
     Utils, AuthenticationProvider,
     CategoryService, TagService, QuestionService,
     GameService, BulkService, UserService, SocialService, StatsService,
     WindowRef,
 
-    //route guards
+    // route guards
     AuthGuard, AdminLoadGuard, BulkLoadGuard, CategoriesResolver, TagsResolver,
 
-    //Actions
+    // Actions
     UserActions, CategoryActions, TagActions, QuestionActions,
     UIStateActions, GameActions,
 

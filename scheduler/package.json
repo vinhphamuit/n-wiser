@@ -2,7 +2,7 @@
   "name": "scheduler",
   "description": "scheduler for checking Game play timeout",
   "dependencies": {
-    "firebase-admin": "5.9.1",    
+    "firebase-admin": "5.9.1",
     "node-cron": "^1.2.1"
   },
   "private": true,

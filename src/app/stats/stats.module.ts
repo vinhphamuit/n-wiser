@@ -12,11 +12,11 @@ import { effects, reducer } from './store';
     RealtimeStatsComponent
   ],
   imports: [
-    //rwa modules
+    // n modules
     SharedModule,
-    //ngrx feature store
+    // ngrx feature store
     StoreModule.forFeature('stats', reducer),
-    //ngrx effects
+    // ngrx effects
     EffectsModule.forFeature(effects),
   ],
   providers: [

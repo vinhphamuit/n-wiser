@@ -5,7 +5,7 @@ export enum schedulerConstants {
     domainZone = 'us-central1',
     port = 443,
     devFunctionsAppName = 'rwa-trivia-dev-e57fc',
-    prodFunctionsAppName = 'rwa-trivia',
+    prodFunctionsAppName = 'ntrivia-86e25',
     gameOverApiPath = '/app/game/game-over/scheduler',
     turnChangeApiPath = '/app/game/turn/scheduler',
     prod = 'prod',

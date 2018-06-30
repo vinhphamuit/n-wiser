@@ -12,12 +12,12 @@ import { effects, reducer } from './store';
     NewsletterComponent
   ],
   imports: [
-    //rwa modules
+    // n modules
     SharedModule,
-    //ngrx feature store
+    // ngrx feature store
     StoreModule.forFeature('social', reducer),
 
-    //ngrx effects
+    // ngrx effects
     EffectsModule.forFeature(effects),
   ],
   providers: [

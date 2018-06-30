@@ -46,7 +46,7 @@ import { environment } from '../environments/environment';
     //StoreModule.forRoot(reducers),
     StoreRouterConnectingModule,
 
-    //rwa modules
+    // n modules
     CoreModule,
     SharedModule,
     RoutingModule,

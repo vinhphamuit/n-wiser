@@ -38,14 +38,14 @@ import { InviteMailFriendsComponent } from './components/invite-friends/invite-f
     RecentGameCardComponent
   ],
   imports: [
-    // rwa modules
+    // n modules
     SharedModule,
     UserRoutingModule,
 
-    //ngrx feature store
+    // ngrx feature store
     StoreModule.forFeature('user', reducer),
 
-    //ngrx effects
+    // ngrx effects
     EffectsModule.forFeature(effects),
 
   ],

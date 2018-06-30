@@ -26,7 +26,7 @@ import { effects, reducer } from './store';
     ReportGameComponent
   ],
   imports: [
-    //rwa modules
+    // n modules
     SharedModule,
     GamePlayRoutingModule,
 

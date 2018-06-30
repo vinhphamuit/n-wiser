@@ -64,7 +64,7 @@ describe('Component: DashboardComponent', () => {
   //Unit Tests
   it('Display Title', () => {
     fixture.detectChanges();
-    expect(_titleEl.textContent).toContain("rwa Stats");
+    expect(_titleEl.textContent).toContain("n Stats");
   });
 
   it('Dashboard Counts', () => {
