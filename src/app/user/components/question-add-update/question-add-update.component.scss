@@ -2,7 +2,7 @@
 .submitpage .card{ padding: 25px 0 0 }
 .optionbox{ margin-top: 30px; text-align: left;}
 .optionbox h2{ font-size: 20px; letter-spacing: 0.75px; line-height: 1.2; margin: 0 0 10px }
-.optionbox h2 span{ font-size: 20px; text-transform: none; letter-spacing: .10px; padding-left: 0; font-family: 'hindmedium' }
+.optionbox h2 span{ font-size: 20px; text-transform: none; letter-spacing: .10px; padding-left: 0; font-family: 'sourcesemibold' }
 .submitpage .optionbox{ padding: 0 10px }
 .submitpage textarea{ width: 100%; display: inline-block; border-width: 1px; border-style: solid; border-radius: 4px; font-size: 18px; }
 .card .enterquestion h3{ font-size: 18px; margin: 30px 0 16px}
@@ -16,7 +16,7 @@
 .enterquestion .formfield input[type="radio"]{ display: block;}
 
 .question-list li input[type="radio"], .optionbox input[type="radio"]{ display: none; }
-.question-list li label{ cursor: pointer; font-family: 'hindmedium'; font-size: 16px; padding: 6px 13px; border-radius: 17px; transition: 0.3s ease-in-out; position: relative; display: inline-block;}
+.question-list li label{ cursor: pointer; font-family: 'sourcesemibold'; font-size: 16px; padding: 6px 13px; border-radius: 17px; transition: 0.3s ease-in-out; position: relative; display: inline-block;}
 .question-list li label:before{ content: "";position: absolute; height: 17px; width: 8px; border-width:0 2px 2px 0; border-style: solid; transform: rotate(45deg); left: 22px; display: none;}
 .question-list li input:checked ~ label{ padding-left: 40px; }
 .question-list li input:checked ~ label:before{ display: block; }

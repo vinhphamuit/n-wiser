@@ -12,7 +12,7 @@
 /*Main Content*/
 /*Heading*/
 .pageheading + .align-right{ margin-bottom: 10px;}
-.startgame{ font-family:'hindsemibold' ; text-transform: uppercase; box-shadow:0 2px 5px rgba(0,0,0,0.3); height: 42px; line-height: 42px; border-radius: 4px; display: inline-block; text-align: center; letter-spacing: 1px; width: 100%} 
+.startgame{ font-family:'sourcesemibold' ; text-transform: uppercase; box-shadow:0 2px 5px rgba(0,0,0,0.3); height: 42px; line-height: 42px; border-radius: 4px; display: inline-block; text-align: center; letter-spacing: 1px; width: 100%} 
 .sunicon{  height: 35px; width:35px;  margin-right: 10px; animation-name: spin; animation-duration: 20000ms; animation-iteration-count: infinite; animation-timing-function: linear;}
 #curentactive { text-align: center; }
 @media (min-width: 767px){
@@ -33,7 +33,7 @@
 /*Currentgame End*/
 
 /*Invitation to play games*/
-h2 span{ font-size: 14px; font-family: 'hindregular';margin-right: 10px;}
+h2 span{ font-size: 14px; font-family: 'sourceregular';margin-right: 10px;}
 .invitationlist{ margin-top: 16px; }
 .invitationlist li{ padding: 15px 30px; margin:0 10px}
 //.invitationlist li:nth-child(odd){ background:#fafafa;  }
@@ -48,7 +48,7 @@ h2 span{ font-size: 14px; font-family: 'hindregular';margin-right: 10px;}
 }
 
 /*Category*/
-.card h3{ font-family: 'hindmedium'; font-size: 16px;}
+.card h3{ font-family: 'sourcesemibold'; font-size: 16px;}
 .card h3:before{ height: 11px; width:11px; border-radius: 50%; border:1px solid; content: ""; display: inline-block; margin-right: 10px}
 /*Category End*/
 /*Question of the day*/

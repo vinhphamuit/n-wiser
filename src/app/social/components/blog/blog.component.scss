@@ -3,7 +3,7 @@
 .blogimg{ display: block; transition: 0.3s ease-in-out}
 .blogimg img{ height: 220px; width: 100%; object-fit: cover; }
 h2{margin: 15px 0 10px; line-height: 1}
-h2 a{ font-family:'hindmedium'; font-size: 16px; transition: 0.3s ease-in-out;}
+h2 a{ font-family:'sourcesemibold'; font-size: 16px; transition: 0.3s ease-in-out;}
 .more{ display: none; }
 .blog-social{line-height: 50px; height: 50px; border-top: 1px solid; border-color: rgba(204,204,204,0.44);}
 @media screen and ( min-width:1000px){
@@ -43,7 +43,7 @@ h2 a{ font-family:'hindmedium'; font-size: 16px; transition: 0.3s ease-in-out;}
 {
   height: 65px;
   font-size: 16px;
-  font-family:'hindmedium';
+  font-family:'sourcesemibold';
 }
 .blog-tags {
   font-size: 12px;
@@ -105,7 +105,7 @@ h2 a{ font-family:'hindmedium'; font-size: 16px; transition: 0.3s ease-in-out;}
 }
 .commenticon,.viewicon
 {
-  font-family:'hindmedium';
+  font-family:'sourcesemibold';
 }
 
 

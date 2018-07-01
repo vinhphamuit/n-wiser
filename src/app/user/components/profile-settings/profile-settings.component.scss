@@ -12,25 +12,25 @@
 .submitpage .optionbox{ padding: 0 10px }
 .optionbox{ margin-top: 30px; text-align: left;}
 .optionbox h2{ font-size: 20px; letter-spacing: 0.75px; line-height: 1.2; margin: 0 0 10px }
-.optionbox h2 span{ font-size: 20px; text-transform: none; letter-spacing: .10px; padding-left: 0; font-family: 'hindmedium' }
+.optionbox h2 span{ font-size: 20px; text-transform: none; letter-spacing: .10px; padding-left: 0; font-family: 'sourcesemibold' }
 .card .enterquestion h3{ font-size: 18px; margin: 30px 0 16px}
 .card .enterquestion h3:before{ display: none;  }
 
 .enterquestion .formfield > input, .formfield select{padding: 10px 25px; font-size: 18px; display: inline-block; width: calc(100% - 34px)}
 .enterquestion .formfield > label{ width: 30px; display: inline-block; vertical-align: -4px}
 
-.viewbublic{ border:1px solid; border-radius: 4px; font-size: 18px; font-family: 'hindmedium'; box-shadow: 0 1px 1px rgba(0,0,0,0.63); padding:10px 0;  display: block; text-align: center; margin-top: 20px;}
+.viewbublic{ border:1px solid; border-radius: 4px; font-size: 18px; font-family: 'sourcesemibold'; box-shadow: 0 1px 1px rgba(0,0,0,0.63); padding:10px 0;  display: block; text-align: center; margin-top: 20px;}
 .avatarinput p{ margin-top: 15px; }
 .mysetting .formfield{ padding:0px 30px 0px 0; margin-bottom: 20px}
 .mysetting .formfield > label{ width: auto; }
 .saccount .formfield{ padding:0;}
 .saccount .formfield > input{ font-size: 14px; padding: 13px 17px; }
 .saccount .formfield select{ font-size: 14px; }
-.saccount .formfield label{ font-size: 18px; font-family: 'hindmedium'; width: 90px}
-.saccount .formfield label:nth-child(2){ width: auto; font-family: 'hindregular'; font-size: 16px; }
+.saccount .formfield label{ font-size: 18px; font-family: 'sourcesemibold'; width: 90px}
+.saccount .formfield label:nth-child(2){ width: auto; font-family: 'sourceregular'; font-size: 16px; }
 .saccount .formfield label + p{margin-top: 13px }
 .savebox{ padding: 20px 15px }
-.savebox a:nth-child(2){ font-size: 18px; font-family: 'hindmedium'; margin-top: 30px; display: inline-block; }
+.savebox a:nth-child(2){ font-size: 18px; font-family: 'sourcesemibold'; margin-top: 30px; display: inline-block; }
 .btn-sticky{position: fixed;bottom: 0;left:0;}
 
 #file-name{ border:1px solid; border-radius: 4px; padding: 7px 10px; font-size: 16px; min-width:100%; display: inline-block; }
@@ -42,7 +42,7 @@ label.custom-file-upload:hover:after{ opacity: 0.5 }
 .custom-file-upload img{ display: block; }
 .namefield{ margin-top: 30px }
 .namefield .formfield{display: block !important; text-align: left;}
-.namefield .formfield > label{ text-align: left; font-size: 18px; font-family: 'hindmedium' }
+.namefield .formfield > label{ text-align: left; font-size: 18px; font-family: 'sourcesemibold' }
 .namefield .formfield > p{ margin-top: 5px }
 /*Custom File Upload End*/
 @media screen and ( min-width:767px){

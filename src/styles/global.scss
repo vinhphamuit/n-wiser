@@ -1,10 +1,10 @@
 /* General css */
 .hide{display: hidden;}
 .noborder { border: none !important; }
-button { transition: all 0.4s ease-in-out 0s; -webkit-transition: all 0.4s ease-in-out 0s; -moz-transition: all 0.4s ease-in-out 0s; -ms-transition: all 0.4s ease-in-out 0s; -o-transition: all 0.4s ease-in-out 0s; display: inline-block; padding: 4px 15px; text-decoration: none; font-family: 'robotolight'; }
+button { transition: all 0.4s ease-in-out 0s; -webkit-transition: all 0.4s ease-in-out 0s; -moz-transition: all 0.4s ease-in-out 0s; -ms-transition: all 0.4s ease-in-out 0s; -o-transition: all 0.4s ease-in-out 0s; display: inline-block; padding: 4px 15px; text-decoration: none; font-family: 'sourcelight'; }
 .no_scroll { overflow: hidden; }
 article, aside, details, figcaption, figure, footer, header, main, nav, section, summary, title { display: block; }
-body { font-family: 'hindregular', sans-serif; font-style: normal; font-size: 14px; line-height: 15px; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+body { font-family: 'sourceregular', sans-serif; font-style: normal; font-size: 14px; line-height: 15px; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, legend, input, textarea, p, blockquote, th, td { margin: 0; padding: 0; line-height: 1.5; }
 form{ line-height: inherit; }
 h1, h2, h3, h4, h5, h6{ font-weight: normal; }
@@ -29,11 +29,12 @@ input[type="checkbox"], input[type="radio"], li, div, p, span { box-sizing: bord
 input[type="search"] { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; -webkit-appearance: textfield; }
 textarea { overflow: auto; vertical-align: top; padding: 15px 13px 20px; resize: none; }
 /*Fonts family*/
-@font-face {font-family: 'hindsemibold'; src: url('/assets/fonts/hind-semibold-webfont.woff2') format('woff2'),  url('/assets/fonts/hind-semibold-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
-@font-face { font-family: 'hindbold'; src: url('/assets/fonts/hind-bold-webfont.woff2') format('woff2'), url('/assets/fonts/hind-bold-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
-@font-face { font-family: 'hindlight'; src: url('/assets/fonts/hind-light-webfont.woff2') format('woff2'), url('/assets/fonts/hind-light-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
-@font-face { font-family: 'hindmedium'; src: url('/assets/fonts/hind-medium-webfont.woff2') format('woff2'), url('/assets/fonts/hind-medium-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
-@font-face { font-family: 'hindregular'; src: url('/assets/fonts/hind-regular-webfont.woff2') format('woff2'), url('/assets/fonts/hind-regular-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+// @font-face {font-family: 'sourceregular'; src: url('/assets/fonts/hind-semibold-webfont.woff2') format('woff2'),  url('/assets/fonts/hind-semibold-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face { font-family: 'sourcesemibold'; src: url('/assets/fonts/SourceSansPro-Semibold.woff2') format('woff2'),  url('/assets/fonts/SourceSansPro-Semibold.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face { font-family: 'sourcebold'; src: url('/assets/fonts/SourceSansPro-Bold.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-Bold.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face { font-family: 'sourcelight'; src: url('/assets/fonts/SourceSansPro-Light.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-Light.woff') format('woff'); font-weight: normal; font-style: normal;}
+// @font-face { font-family: 'sourcesemibold'; src: url('/assets/fonts/SourceSansPro-Medium.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-Medium.woff') format('woff'); font-weight: normal; font-style: normal;}
+@font-face { font-family: 'sourceregular'; src: url('/assets/fonts/SourceSansPro-Regular.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-Regular.woff') format('woff'); font-weight: normal; font-style: normal;}
 @font-face { font-family: 'latolight_italic'; src: url('/assets/fonts/lato-lightitalic-webfont.woff2') format('woff2'), url('/assets/fonts/lato-lightitalic-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
 /*Misc*/
 .floatleft { float: left; }
@@ -317,19 +318,19 @@ textarea { overflow: auto; vertical-align: top; padding: 15px 13px 20px; resize:
 .active .chancaticon{ background-position: -174px -112px;}
 .resubmiticon{ background-position: -129px -262px; height: 28px; width: 28px; margin-bottom: 3px}
 
-h1{ font-size: 26px; font-family: 'hindlight';line-height: 31px; padding: 10px 0}
-h2{ font-size: 18px; font-family: 'hindmedium'; line-height: 30px; letter-spacing: 0.1px}
-.btn{font-size: 16px; display: block; font-family: 'hindbold'; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); text-align: center; padding: 10px 0}
+h1{ font-size: 26px; font-family: 'sourcelight';line-height: 31px; padding: 10px 0}
+h2{ font-size: 18px; font-family: 'sourcesemibold'; line-height: 30px; letter-spacing: 0.1px}
+.btn{font-size: 16px; display: block; font-family: 'sourcebold'; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); text-align: center; padding: 10px 0}
 .btn.startg{ font-size: 24px; display: block; padding: 15px 0; width: 100% ;line-height: 1.2; margin:0}
 main { display: block; padding: 0 15px; vertical-align: top; }
 main .card{ margin-bottom: 30px; padding: 25px ;  box-shadow: 0 2px 6px rgba(0,0,0,0.12);}
-main h2 span{ font-size: 14px; font-family: 'hindregular';}
-.pageheading{ font-size: 18px; font-family: 'hindbold'; text-transform: uppercase; letter-spacing: 0.22px ;height:46px; line-height:46px;}
+main h2 span{ font-size: 14px; font-family: 'sourceregular';}
+.pageheading{ font-size: 18px; font-family: 'sourcebold'; text-transform: uppercase; letter-spacing: 0.22px ;height:46px; line-height:46px;}
 .secondbg{ padding: 35px 0; border-top:1px solid; margin-top: 40px ; position: relative;}
 .secondbg:before{ content: ""; position: absolute; left: 50%; top: 0; transform: translateX(-50%); border-width: 14px; border-style: solid; border-color: #dddddd transparent transparent transparent;}
 .secondbg:after{content:""; position: absolute; left:50%; top: -1px; transform: translateX(-50%); border-width:13px; border-style: solid; border-color: #fff transparent transparent transparent}
 .btnbox{ border-top:1px solid; padding: 20px 0; margin-top: 10px; }
-.card h3{ font-family: 'hindmedium'; font-size: 16px;}
+.card h3{ font-family: 'sourcesemibold'; font-size: 16px;}
 .card h3:before{ height: 11px; width:11px; border-radius: 50%; border:1px solid; content: ""; display: inline-block; margin-right: 10px}
 .btnbox{ border-top:1px solid; padding: 20px 0; margin-top: 10px; }
 
@@ -397,7 +398,7 @@ form .tags{ padding-top: 20px }
 /*Common Css End*/
 
 /*Hedding*/
-h1 + p{ font-size: 18px; font-family: 'hindlight'; }
+h1 + p{ font-size: 18px; font-family: 'sourcelight'; }
 .h1block{ display: inline-block; padding:0 0 20px;  border-bottom: 1px solid; position: relative;}
 .h1block:after{ content: ""; border-radius: 4px; position: absolute; left: 0; right: 0; margin: auto; bottom: -8px; height: 7px; width: 7px; border:5px solid; box-sizing: content-box;}
 /*Hedding End*/
@@ -503,7 +504,7 @@ nav .user.card{
 @media screen and ( min-width:600px){
   .mat-tab-label
   {
-      font-family: 'hindsemibold' !important; letter-spacing: 0.1px;font-size: 18px !important;width: 50%;
+      font-family: 'sourceregular' !important; letter-spacing: 0.1px;font-size: 18px !important;width: 50%;
   }
 }
 

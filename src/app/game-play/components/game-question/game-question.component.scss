@@ -16,7 +16,7 @@
 
 .optionbox{ margin-top: 30px; text-align: left;}
 .optionbox h2{ font-size: 20px; letter-spacing: 0.75px; line-height: 1.2; margin: 0 0 10px }
-.optionbox h2 span{ font-size: 20px; text-transform: none; letter-spacing: .10px; padding-left: 0; font-family: 'hindmedium' }
+.optionbox h2 span{ font-size: 20px; text-transform: none; letter-spacing: .10px; padding-left: 0; font-family: 'sourcesemibold' }
 .optionbox .radiobtn{ padding:0 0 46px   }
 .optionbox .radiobtn label{ font-size: 20px; display: inline-block; width: 100%; border:1px solid; border-radius: 4px; padding: 9px 0; text-align: center; cursor: pointer; transition: 0.3s ease-in-out; position: relative; overflow: hidden;}
 .optionbox .radiobtn label .sprite{ border-radius: 50% }
@@ -88,11 +88,11 @@
 /*--Game-Option End--*/
 
 /*Game Play*/
-.gameplay h1{ font-size: 24px; font-family: 'hindmedium'; padding: 0}
-.gameplay h2{ font-size: 20px; font-family: 'hindregular'; margin: 0 auto; }
-.popupbottom{ font-size: 16px; padding: 1% 4%;text-align: left;font-family: 'hindregular';}
-.gameplay p a{font-family: 'hindmedium'}
-.gameplay li{ margin:30px 20px 0; padding: 15px 0; font-size: 16px; font-family: 'hindmedium'; border:1px solid ; border-radius: 4px; cursor: pointer; overflow: hidden; position: relative;word-wrap: break-word;}
+.gameplay h1{ font-size: 24px; font-family: 'sourcesemibold'; padding: 0}
+.gameplay h2{ font-size: 20px; font-family: 'sourceregular'; margin: 0 auto; }
+.popupbottom{ font-size: 16px; padding: 1% 4%;text-align: left;font-family: 'sourceregular';}
+.gameplay p a{font-family: 'sourcesemibold'}
+.gameplay li{ margin:30px 20px 0; padding: 15px 0; font-size: 16px; font-family: 'sourcesemibold'; border:1px solid ; border-radius: 4px; cursor: pointer; overflow: hidden; position: relative;word-wrap: break-word;}
 
 .timer{width:61px;height:61px;margin:0 auto; position: relative;}
 .timer .rotate{width:51px;height:51px;display:block;position:absolute; margin: 5px 0 0 5px;border-radius: 50%;}
@@ -163,7 +163,7 @@ mat-card {
 }
 .continue-btn
 {
-  font-family: 'hindbold';
+  font-family: 'sourcebold';
   font-size: 16px;
 }
 .question-tag
