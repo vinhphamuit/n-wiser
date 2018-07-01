@@ -1,7 +1,7 @@
 {
-  "name": "trivia",
-  "short_name": "trivia",
-  "theme_color": "#1976d2",
+  "name": "n wiser",
+  "short_name": "n wiser",
+  "theme_color": "#455A64",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",

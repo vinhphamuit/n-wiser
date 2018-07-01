@@ -15,5 +15,5 @@ export enum TriggerConstants {
 }
 
 export enum RSSFeedConstants {
-    feedURL = 'https://blog.realworldfullstack.io/feed'
+    feedURL = '#'
 }

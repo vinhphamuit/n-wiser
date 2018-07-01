@@ -12,11 +12,11 @@ describe('Reducer: user', () => {
 
   it('Add User Action', () => {
     let aUser: User  = { 
-      "userId": "32489230-13423",
-      "displayName": "trivia",
-      "email": "trivia@realworldfullstack.io",
-      "roles": [],
-      "authState": null
+      'userId': '32489230-13423',
+      'displayName': 'trivia',
+      'email': 'vtiq@outlook.com',
+      'roles': [],
+      'authState': null
     };
     let state: User = user(null, {type: UserActions.ADD_USER_WITH_ROLES, payload: aUser});
 
@@ -26,11 +26,11 @@ describe('Reducer: user', () => {
 
   it('Logoff Action', () => {
     let aUser: User  = { 
-      "userId": "32489230-13423",
-      "displayName": "trivia",
-      "email": "trivia@realworldfullstack.io",
-      "roles": [],
-      "authState": null
+      'userId': '32489230-13423',
+      'displayName': 'trivia',
+      'email': 'vtiq@outlook.com',
+      'roles': [],
+      'authState': null
     };
     let state: User = user(aUser, {type: UserActions.LOGOFF});
 
@@ -40,13 +40,13 @@ describe('Reducer: user', () => {
 
   it('Any other action', () => {
     let aUser: User  = { 
-      "userId": "32489230-13423",
-      "displayName": "trivia",
-      "email": "trivia@realworldfullstack.io",
-      "roles": [],
-      "authState": null
+      'userId': '32489230-13423',
+      'displayName': 'trivia',
+      'email': 'vtiq@outlook.com',
+      'roles': [],
+      'authState': null
     };
-    let state: User = user(aUser, {type: "any other action", payload: null});
+    let state: User = user(aUser, {type: 'any other action', payload: null});
 
     expect(state).toEqual(aUser);
 

@@ -29,7 +29,6 @@ input[type="checkbox"], input[type="radio"], li, div, p, span { box-sizing: bord
 input[type="search"] { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; -webkit-appearance: textfield; }
 textarea { overflow: auto; vertical-align: top; padding: 15px 13px 20px; resize: none; }
 /*Fonts family*/
-// @font-face {font-family: 'sourceregular'; src: url('/assets/fonts/hind-semibold-webfont.woff2') format('woff2'),  url('/assets/fonts/hind-semibold-webfont.woff') format('woff'); font-weight: normal; font-style: normal;}
 @font-face { font-family: 'sourcesemibold'; src: url('/assets/fonts/SourceSansPro-Semibold.woff2') format('woff2'),  url('/assets/fonts/SourceSansPro-Semibold.woff') format('woff'); font-weight: normal; font-style: normal;}
 @font-face { font-family: 'sourcebold'; src: url('/assets/fonts/SourceSansPro-Bold.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-Bold.woff') format('woff'); font-weight: normal; font-style: normal;}
 @font-face { font-family: 'sourcelight'; src: url('/assets/fonts/SourceSansPro-Light.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-Light.woff') format('woff'); font-weight: normal; font-style: normal;}
