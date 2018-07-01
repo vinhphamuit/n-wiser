@@ -137,7 +137,7 @@
       }
     }
   },
-  "defaultProject": "ntrivia",
+  "defaultProject": "n-wiser",
   "schematics": {
     "@schematics/angular:component": {
       "inlineTemplate": false,
