@@ -15,8 +15,7 @@ script:
    - ng build --prod
 
 after_success:
-  - firebase use ntrivia-86e25
-  - firebase deploy --token $FIREBASE_TOKEN --non-interactive # firebase deploy after angular-cli build
+  - firebase deploy -P default --only hosting --token $FIREBASE_TOKEN --non-interactive # firebase deploy after angular-cli build
 
 notifications:
   email:
