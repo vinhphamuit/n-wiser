@@ -66,7 +66,6 @@ export class LoginComponent implements OnInit {
         }, (error: Error) => {
           // error
           swal('Error!', error.message, 'error');
-          console.log(error);
         });
         break;
       case 1:
@@ -77,24 +76,24 @@ export class LoginComponent implements OnInit {
         ).then((user: any) => {
           // success
           this.dialogRef.close();
-          if(user && !user.emailVerified) {
+          if (user && !user.emailVerified) {
             user.sendEmailVerification().then(function() {
-              console.log("email verification sent to user");
+              swal('Success!', 'Email verification sent to user', 'success');
             });
           }
         }, (error: Error) => {
           // error
-          console.log(error);
+          swal('Error!', error.message, 'error');
         });
         break;
       case 2:
         // Forgot Password
         firebase.auth().sendPasswordResetEmail(this.loginForm.get('email').value)
         .then((a: any) => {
-          console.log("success. check your email");
+          swal('Success!', 'Check your email', 'success');
         },
         (error: Error) => {
-          console.log(error);
+          swal('Error!', error.message, 'error');
         });
     }
   }
@@ -123,9 +122,9 @@ export enum SignInMode {
 }
 
 function loginFormValidator(fg: FormGroup): {[key: string]: boolean} {
-  //TODO: check if email is already taken
+  // TODO: check if email is already taken
 
-  //Password match validation for Signup only
+  // Password match validation for Signup only
   if (fg.get('mode').value == 1 && fg.get('password').value !== fg.get('confirmPassword').value) {
     return {'passwordmismatch': true}
   }

@@ -1,7 +1,7 @@
 <div *ngIf="false">
-<h1 mat-dialog-title>Choose Login Method</h1> 
+<h1 mat-dialog-title>Choose Login Method</h1>
 
-<mat-dialog-actions class="flex-container" 
+<mat-dialog-actions class="flex-container"
                    fxLayout="column"
                    fxLayoutAlign="space-around">
   <button class="flex-item" mat-raised-button mat-dialog-close color="primary" (click)="googleLogin()">Google</button>
@@ -45,7 +45,7 @@
               <div class="formfield">
                 <label>
                   <input type="checkbox" name="" >Keep me logged in
-                </label>                      
+                </label>
               </div>
               <button mat-raised-button class="btn signup" type="submit" [disabled]="!loginForm.valid">Login</button>
               <div class="row loginlink">
@@ -55,7 +55,7 @@
             </ng-container>
             <ng-container *ngSwitchCase="1">
               <button mat-raised-button class="btn signup" type="submit" [disabled]="!loginForm.valid">Sign Up</button>
-              <div class="signupfree">by clicking "Sign Up" I agree to nWiser's Terms & Conditions</div>
+              <div class="signupfree">by clicking "Sign Up" I agree to n wiser's Terms & Conditions</div>
               <div class="textcenter loginlink"><a (click)="this.mode=0" title="Login">Already have an account? Login</a></div>
             </ng-container>
             <ng-container *ngSwitchCase="2">
@@ -68,8 +68,8 @@
       <div class="col-sm-5 col-xs-12 withsocial">
         <h3>You can also login with your social account</h3>
         <!-- <a (click)="twitterLogin()"><img src="/assets/images/twitbtn.png" alt="Twitter" /></a>  -->
-        <a (click)="fbLogin()"><img src="/assets/images/faceboockbtn.png" alt="facebook" /></a> 
-        <a (click)="googleLogin()"><img src="/assets/images/gpulsebtn.png" alt="Google Plus" /></a> 
+        <a (click)="fbLogin()"><img src="/assets/images/faceboockbtn.png" alt="facebook" /></a>
+        <a (click)="googleLogin()"><img src="/assets/images/gpulsebtn.png" alt="Google Plus" /></a>
         <!-- <a (click)="githubLogin()"><img src="/assets/images/githubbtn.png" alt="Github" /></a>             -->
       </div>
     </div>
