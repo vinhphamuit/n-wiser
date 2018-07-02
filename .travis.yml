@@ -8,6 +8,7 @@ branches:
       - master # will only build for master branch commits
 
 before_script:
+   - if [[ `npm -v` != 6* ]]; then npm i -g npm@6; fi
    - npm install -g --silent firebase-tools # installs firebase to run firebase deploy
    - npm install -g --silent @angular/cli
 
