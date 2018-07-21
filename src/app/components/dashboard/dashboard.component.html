@@ -81,15 +81,15 @@
 
   <div class="row">
     <!-- Question of the day -->
-    <div [ngClass]="showNewsCard?'col-lg-7 col-md-12 col-sm-12':'col-lg-12 col-md-12 col-sm-12' ">
+    <div [ngClass]="showNewsCard?'col-lg-12 col-md-12 col-sm-12':'col-lg-12 col-md-12 col-sm-12' ">
       <question [question]="questionOfTheDay$ | async" [userDict]="userDict"></question>
     </div>
     <!-- Question of the day end -->
 
     <!-- Subscribe -->
-    <div class="col-lg-5 col-md-12 col-sm-12 " *ngIf="showNewsCard">
+    <!-- <div class="col-lg-5 col-md-12 col-sm-12 " *ngIf="showNewsCard">
       <newsletter></newsletter>
-    </div>
+    </div> -->
     <!-- Subscribe end -->
   </div>
 
