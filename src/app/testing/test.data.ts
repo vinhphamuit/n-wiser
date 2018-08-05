@@ -163,7 +163,7 @@ export const TEST_DATA = {
     "questions": {
         "published": [
             {
-                "id": 1,
+                "id": "1",
                 "questionText": "Which of the following function of Array object reverses the order of the elements of an array?",
                 "answers": [
                     {
@@ -192,7 +192,7 @@ export const TEST_DATA = {
                 "categoryIds": [2]
             },
             {
-                "id": 2,
+                "id": "2",
                 "questionText": "Which of the following function of Array object calls a function for each element in the array?",
                 "answers": [
                     {
@@ -221,7 +221,7 @@ export const TEST_DATA = {
                 "categoryIds": [2]
             },
             {
-                "id": 3,
+                "id": "3",
                 "questionText": "Which of the following function of String object returns the index within the calling String object of the first occurrence of the specified value?",
                 "answers": [
                     {
@@ -250,7 +250,7 @@ export const TEST_DATA = {
                 "categoryIds": [2]
             },
             {
-                "id": 4,
+                "id": "4",
                 "questionText": "Which of the following function of Boolean object returns a string containing the source of the Boolean object?",
                 "answers": [
                     {
@@ -279,7 +279,7 @@ export const TEST_DATA = {
                 "categoryIds": [2]
             },
             {
-                "id": 5,
+                "id": "5",
                 "questionText": "Which of the following is true about cookie handling in JavaScript?",
                 "answers": [
                     {
@@ -308,7 +308,7 @@ export const TEST_DATA = {
                 "categoryIds": [2]
             },
             {
-                "id": 6,
+                "id": "6",
                 "questionText": "What's the best Trivia game?",
                 "answers": [
                     {
@@ -348,6 +348,17 @@ export const TEST_DATA = {
             "authState": null
         }
     ],
+
+    "userDict": {
+        'ssHmHkKq9BPByP9c4CtmEqvO4xp2': {
+            "userId": "ssHmHkKq9BPByP9c4CtmEqvO4xp2",
+            "displayName": "trivia",
+            "email": "trivia@realworldfullstack.io",
+            "roles": {},
+            "authState": null
+        }
+    },
+
     "leaderBoard": {
         "1": [
             { "score": 123, "userId": "ssHmHkKq9BPByP9c4CtmEqvO4xp2" },
@@ -384,5 +395,35 @@ export const TEST_DATA = {
             { "score": 50, "userId": "ssHmHkKq9BPTyP9c4CtmEqvO4xp2" },
             { "score": 50, "userId": "ssHmHkKq9BPTyP9c4CtmEqvO4xp2" }
         ]
+    },
+    blog: [{
+        'author': 'Akshay Nihalaney',
+        'blogNo': 0,
+        'categories': [
+            "angular",
+            "jasmine",
+            "jest",
+            "testing",
+            "protractor"],
+        'commentCount': 5,
+        'content': 'test',
+        'guid': 'https://medium.com/p/6a0e03a89038',
+        'id': 1532279340000,
+        'link': 'https://blog.realworldfullstack.io/real-world-app-part-22-angular-testing-with-protractor-jasmine-and-jest-6a0e03a89038?source=rss----5fcb8756dcc3---4',
+        'pubDate': "2018-07-22 17:09:00",
+        'share_status': false,
+        'subtitle': "End to end testing with Protractor and unit tests with Jest",
+        'thumbnail': "https://cdn-images-1.medium.com/max/1024/1*VAuIh4dq6BxKDL8yXmGMTw.jpeg",
+        'title': "Real World App - Part 22: Angular Testing with Protractor, Jasmine and Jest",
+        'viewCount': 100,
+        'created_uuid': 'ssHmHkKq9BPByP9c4CtmEqvO4xp2'
     }
+    ],
+    realTimeStats:
+        {
+            'active_games': 2,
+            'game_played': 2518,
+            'total_questions': 106,
+            'total_users': 67
+        }
 }

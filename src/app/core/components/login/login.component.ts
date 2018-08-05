@@ -15,11 +15,12 @@ const EMAIL_REGEXP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+
 export class LoginComponent implements OnInit {
   mode: SignInMode;
   loginForm: FormGroup;
+
   constructor(private fb: FormBuilder,
-              private afAuth: AngularFireAuth,
-              private dialog: MatDialog,
-              public dialogRef: MatDialogRef<LoginComponent>) {
-    this.mode = SignInMode.signIn;  // default
+    private afAuth: AngularFireAuth,
+    private dialog: MatDialog,
+    public dialogRef: MatDialogRef<LoginComponent>) {
+    this.mode = SignInMode.signIn;  //default
   }
 
   ngOnInit() {
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
       email: ['', Validators.compose([Validators.required, Validators.pattern(EMAIL_REGEXP)])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       confirmPassword: ['']
-      }, {validator: loginFormValidator}
+    }, { validator: loginFormValidator }
     );
 
     this.loginForm.get('mode').valueChanges.subscribe((mode: number) => {
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
         case 1:
           // Signup
           this.loginForm.get('confirmPassword').setValidators([Validators.required, Validators.minLength(6)]);
-          // no break - fall thru
+        //no break - fall thru
         case 0:
           // Login or Signup
           this.loginForm.get('password').setValidators([Validators.required, Validators.minLength(6)]);
@@ -121,12 +122,12 @@ export enum SignInMode {
   forgotPassword
 }
 
-function loginFormValidator(fg: FormGroup): {[key: string]: boolean} {
-  // TODO: check if email is already taken
+function loginFormValidator(fg: FormGroup): { [key: string]: boolean } {
+  //TODO: check if email is already taken
 
   // Password match validation for Signup only
   if (fg.get('mode').value == 1 && fg.get('password').value !== fg.get('confirmPassword').value) {
-    return {'passwordmismatch': true}
+    return { 'passwordmismatch': true }
   }
 
   return null;

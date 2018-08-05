@@ -41,78 +41,81 @@ exports.getQuestions = (req, res) => {
  * return question
  */
 exports.getNextQuestion = (req, res) => {
-  // console.log(req.user.uid);
-  // console.log(req.params.gameId);
+    // console.log(req.user.uid);
+    // console.log(req.params.gameId);
 
-  const userId = req.user.uid;
-  const gameId = req.params.gameId;
-
-
-  questionControllerGameService.getGameById(gameId).then((g) => {
-    if (!g.exists) {
-      // game not found
-      res.status(404).send('Game not found');
-      return;
-    }
-    const game: Game = Game.getViewModel(g.data());
-    // console.log(game);
+    const userId = req.user.uid;
+    const gameId = req.params.gameId;
 
 
-    if (game.playerIds.indexOf(userId) < 0) {
-      // user not part of this game
-      res.status(403).send('User not part of this game');
-      return;
-    }
+    questionControllerGameService.getGameById(gameId).then((g) => {
+        if (!g.exists) {
+            // game not found
+            res.status(404).send('Game not found');
+            return;
+        }
+        const game: Game = Game.getViewModel(g.data());
+        // console.log(game);
 
-    if (game.gameOver) {
-      // gameOver
-      res.status(403).send('Game over. No more Questions');
-      return;
-    }
 
-    if (game.gameOptions.gameMode !== 0) {
-      // Multiplayer mode - check whose turn it is. Not yet implemented
-      res.status(501).send('Wait for your turn. Not yet implemented.');
-      return;
-    }
+        if (game.playerIds.indexOf(userId) < 0) {
+            // user not part of this game
+            res.status(403).send('User not part of this game');
+            return;
+        }
 
-    console.log('game---->', game);
+        if (game.gameOver) {
+            // gameOver
+            res.status(403).send('Game over. No more Questions');
+            return;
+        }
 
-    const gameMechanics: GameMechanics = new GameMechanics(undefined, undefined);
+        if (game.gameOptions.gameMode !== 0) {
+            // Multiplayer mode - check whose turn it is. Not yet implemented
+            res.status(501).send('Wait for your turn. Not yet implemented.');
+            return;
+        }
 
-    gameMechanics.changeTheTurn(game).then((status) => {
-      if (status) {
-        const questionIds = [];
-        game.playerQnAs.map((question) => questionIds.push(question.questionId));
-        ESUtils.getRandomGameQuestion(game.gameOptions.categoryIds, questionIds).then((question) => {
-          const createdOn = utils.getUTCTimeStamp();
-          const playerQnA: PlayerQnA = {
-            playerId: userId,
-            questionId: question.id,
-            addedOn: createdOn
-          }
-          if (game.playerQnAs.length > 0) {
-            game.round = (game.round) ? game.round : game.stats[userId]['round'];
-            const otherPlayerUserId = game.playerIds.filter(playerId => playerId !== userId)[0];
-            const currentUserQuestions = game.playerQnAs.filter((pastPlayerQnA) =>
-              pastPlayerQnA.playerId === userId);
-            const otherUserQuestions = game.playerQnAs.filter((pastPlayerQnA) => pastPlayerQnA.playerId === otherPlayerUserId
-            );
+        console.log('game---->', game);
 
-            if (Number(game.gameOptions.playerMode) === PlayerMode.Single) {
-              game.round = game.round + 1;
+        const gameMechanics: GameMechanics = new GameMechanics(undefined, undefined);
 
-            } else if (Number(game.gameOptions.playerMode) === PlayerMode.Opponent &&
-              currentUserQuestions.length > 0 && otherUserQuestions.length > 0) {
-              const lastcurrentUserQuestion = currentUserQuestions[currentUserQuestions.length - 1];
-              const lastotherUserQuestions = otherUserQuestions[otherUserQuestions.length - 1];
-              lastcurrentUserQuestion.round = (lastcurrentUserQuestion.round) ? lastcurrentUserQuestion.round : game.round;
-              lastotherUserQuestions.round = (lastotherUserQuestions.round) ? lastotherUserQuestions.round : game.round;
-              if (lastcurrentUserQuestion.round === lastotherUserQuestions.round
-                && !lastcurrentUserQuestion.answerCorrect
-                && !lastotherUserQuestions.answerCorrect) {
-                game.round = game.round + 1;
-              }
+        gameMechanics.changeTheTurn(game).then((status) => {
+            if (status) {
+                const questionIds = [];
+                game.playerQnAs.map((question) => questionIds.push(question.questionId));
+                ESUtils.getRandomGameQuestion(game.gameOptions.categoryIds, questionIds).then((question) => {
+                    const createdOn = utils.getUTCTimeStamp();
+                    const playerQnA: PlayerQnA = {
+                        playerId: userId,
+                        questionId: question.id,
+                        addedOn: createdOn
+                    }
+                    if (game.playerQnAs.length > 0) {
+                        if (Number(game.gameOptions.playerMode) === PlayerMode.Single) {
+                            game.round = game.round + 1;
+                        }
+                    }
+
+                    playerQnA.round = game.round;
+                    question.gameRound = game.round;
+                    question.addedOn = createdOn;
+                    game.playerQnAs.push(playerQnA);
+                    const dbGame = game.getDbModel();
+                    //  console.log('update the question ---->', question);
+                    gameMechanics.UpdateGame(dbGame).then((id) => {
+                        res.send(question);
+                    });
+                }).catch(error => {
+                    console.log('error', error);
+                    res.status(500).send('Failed to get Q');
+                    return;
+                });
+            } else {
+                ESUtils.getQuestionById(game.playerQnAs[game.playerQnAs.length - 1].questionId).then((question) => {
+                    question.gameRound = game.round;
+                    res.send(question);
+                });
             }
           }
 
