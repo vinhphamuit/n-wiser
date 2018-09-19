@@ -23,7 +23,7 @@
               "projects/trivia/src/robots.txt"
             ],
             "styles": [
-              "projects/trivia/src/styles/rwa-trivia.theme.scss",
+              "projects/trivia/src/styles/n-trivia.theme.scss",
               "projects/trivia/src/styles/styles.scss",
               "projects/trivia/src/styles/global.scss",
               "projects/trivia/src/styles/light.theme.scss",
@@ -173,7 +173,7 @@
               "projects/trivia-admin/src/manifest.json"
             ],
             "styles": [
-              "projects/trivia-admin/src/styles/rwa-trivia.theme.scss",
+              "projects/trivia-admin/src/styles/n-trivia.theme.scss",
               "projects/trivia-admin/src/styles/styles.scss",
               "projects/trivia-admin/src/styles/global.scss",
               "projects/trivia-admin/src/styles/light.theme.scss",
